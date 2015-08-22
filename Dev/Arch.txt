@@ -1,0 +1,35 @@
+== Sprite Layer ==
+World
+  Particle
+  Slime Layer 1
+  Hero Layer
+  Slime Layer 2
+  Dead slimes
+  Map
+    Ore Nodes
+    Foreground
+	  Image
+	Background (Parallax)
+      Image(s)
+
+
+	  
+	  
+	  
+	  
+
+== Game Classes ==  
+Entity
+ - Health, Basic stats, collision/hit boxes, team
+ - Move
+ - Skill Activations
+     - Ex. Basic Attack
+ - AI controller
+ - Targets
+ - Grounding info
+ 
+
+Skill
+ - Animation
+ - CanActivateNow():int
+ - PerformExecution(frame:int):bool
