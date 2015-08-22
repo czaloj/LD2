@@ -1,27 +1,34 @@
-package
+package 
 {
-	import flash.display.Sprite;
+	import org.flixel.*;
 	import flash.events.Event;
+	import flash.ui.Mouse;
+	import flash.ui.MouseCursor;
 	
 	/**
 	 * ...
 	 * @author Cristian and Trevor
 	 */
-	public class Main extends Sprite 
+	[SWF(width = "800", height = "600", backgroundColor = "0xffffff")]
+	public class Main extends FlxGame
 	{
 		
-		public function Main() 
+		
+		public function Main():void 
 		{
-			if (stage) init();
-			else addEventListener(Event.ADDED_TO_STAGE, init);
+			//start up the menu
+			super(800, 600, CreditState);
 		}
 		
-		private function init(e:Event = null):void 
-		{
-			removeEventListener(Event.ADDED_TO_STAGE, init);
-			// entry point
-		}
-		
+		override protected function create(FlashEvent:Event):void
+        {
+            super.create(FlashEvent);
+			//turn off annoying flixel stuff lol
+            stage.removeEventListener(Event.DEACTIVATE, onFocusLost);
+            stage.removeEventListener(Event.ACTIVATE, onFocus);
+			//turn the mouse on
+			Mouse.show();
+        }
 	}
 	
 }
