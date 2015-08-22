@@ -2,9 +2,16 @@ package game
 {
 	public class AIController 
 	{
+		public var entity:Entity = null;
+		
 		public function AIController() 
 		{
 			
+		}
+		
+		public function chooseMovement(state:State):Number // Value between (-1, 1)
+		{
+			return 0.0;
 		}
 		
 		public function chooseSkill(state:State, skills:Array):Skill

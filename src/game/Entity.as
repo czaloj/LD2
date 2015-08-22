@@ -29,6 +29,10 @@ package game
 			this.team = team;
 			this.ai = ai;
 			this.skills.push(skills);
+			
+			// Set the entity reference
+			ai.entity = this;
+			for each (var skill:Skill in skills) skill.entity = this;
 		}
 		
 		// The decision step
@@ -50,6 +54,10 @@ package game
 				{
 					activeSkill = null;
 				}
+			}
+			else
+			{
+				center.x += ai.chooseMovement(state) * stats.moveSpeed;
 			}
 		}
 	}
