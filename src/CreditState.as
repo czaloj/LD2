@@ -14,7 +14,7 @@ package
 			super.create();
 			
 			var bg:FlxSprite = new FlxSprite(0, 0);
-			bg.makeGraphic(800, 600, 0xffeeeeee);
+			bg.makeGraphic(8000, 6000, 0xffffffff);
 			add(bg);
 			
 			var chaomoon:FlxSprite = new FlxSprite(0, 0, chaomoonImage);

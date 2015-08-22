@@ -15,6 +15,7 @@ package
 			gameStateRef = gameStateRefIn;
 			size = 24;
 			color = 0xff000000;
+			scrollFactor.x = scrollFactor.y = 0;
 		}
 		
 		override public function update():void {

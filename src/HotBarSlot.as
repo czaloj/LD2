@@ -22,13 +22,14 @@ package
 		
 		public function HotBarSlot(skillIn:int, hbRefIn:HotBar, X:Number=0) 
 		{
-			super(X, 450, hb_slot_Image);
+			super(X, 620, hb_slot_Image);
 			hbRef = hbRefIn;
 			skill = skillIn;
 			cdtext = new FlxText(x + 30, y + 24, 500, "");
 			cdtext.visible = false;
 			cdtext.size = 18;
-			
+			cdtext.scrollFactor.x = cdtext.scrollFactor.y = 0;
+			scrollFactor.x = scrollFactor.y = 0;
 		}
 		
 		override public function update():void {
@@ -36,7 +37,7 @@ package
 				hbRef.gameStateRef.add(cdtext);
 				textadded = true;
 			}
-			var i:int = (cd / 30)+1;
+			var i:int = (cd / 45)+1;
 			cdtext.text = "" + i;
 			if (cd > 0) {
 				cd--;
@@ -50,11 +51,13 @@ package
 				//if the player click on this hot bar slot to use the slime
 				if ((FlxG.mouse.x >= x && FlxG.mouse.x <= x + 75) && (FlxG.mouse.y >= y && FlxG.mouse.y <= y + 75)) {
 					//use slime
+					hbRef.gameStateRef.makeSlime();
 					//hbRef.cooldownothers(skill);
 					cd = 150;
 					hbRef.gameStateRef.jello -= 44;
 				}
 			}
+			//collision y 896
 		}
 		
 		public function addcd(amt:int):void {

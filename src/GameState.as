@@ -7,6 +7,9 @@ package
 	
 	public class GameState extends FlxState 
 	{
+		[Embed(source = "images/map.png")]
+		public var mapbg_Image:Class;
+		
 		public var state:State = null;
 		
 		//resource
@@ -15,13 +18,23 @@ package
 		public var st:SkillTree;
 		public var hb:HotBar;
 		
+		public var cam:FlxCamera;
+		public var player:FlxSprite;
+		public var cloudGroup:FlxGroup;
+		
 		override public function create():void {
 			super.create();
-
+		
 			//temporary blue background
+			var mapbg:FlxSprite = new FlxSprite(0, 0, mapbg_Image);
 			var tempWhite:FlxSprite = new FlxSprite(0, 0);
-			tempWhite.makeGraphic(800, 600, 0xff66ccff);
+			tempWhite.makeGraphic(8000, 6000, 0xff66ccff);
 			add(tempWhite);
+			//clouds
+			cloudGroup = new FlxGroup();
+			add(cloudGroup);
+			makeClouds();
+			add(mapbg);
 			
 			//hot bar stuff
 			hb = new HotBar(this);
@@ -34,10 +47,41 @@ package
 			//add the skill tree window
 			st = new SkillTree(this);
 			add(st);
+			
+			player = new FlxSprite(2000, 350);
+			player.makeGraphic(1200, 800, 0x00000000);
+			add(player);
+			
+			//camera (temporary???)
+			cam = new FlxCamera(0, 0, 1200, 800);
+			cam.follow(player);
+			// this sets the limits of where the camera goes so that it doesn't show what's outside of the tilemap
+			cam.setBounds(0,0, 3200, 1280);
+			//cam.color = 0xFFCCCC; // add a light red tint to the camera to differentiate it from the other
+			FlxG.addCamera(cam);
+			
+			
 		}
 		
 		override public function update():void {
 			super.update();
+			//jello++;
+			
+			//CAMERA MOVEMENT
+			if (FlxG.keys.A) {
+				player.x -= 20;
+			}
+			if (FlxG.keys.D) {
+				player.x += 20;
+			}
+			if (player.x < 0)
+				player.x = 0;
+			if (player.x > 2000)
+				player.x = 2000;
+			if (player.y < 0)
+				player.y = 0;
+			if (player.y > 480)
+				player.y = 480;
 			
 			switch (state.executionState)
 			{
@@ -61,6 +105,18 @@ package
 		public function next():void {
 			//go back to menu
 			FlxG.switchState(new MenuState());
+		}
+		
+		public function makeSlime():void {
+			var newSlime:Slime = new Slime(this, (player.x+600)+(-200+(Math.random()*400)), 500);
+			add(newSlime);
+		}
+		
+		public function makeClouds():void {
+			for (var ia:int = 0; ia < 5; ia++) {
+				var newCloud:Cloud = new Cloud();
+				cloudGroup.add(newCloud);
+			}
 		}
 	}
 }

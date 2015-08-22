@@ -41,8 +41,9 @@ package
 		
 		public function HotBar(gameStateRefIn:GameState) 
 		{
-			super(0, 450, hbBG_Image);
+			super(200, 620, hbBG_Image);
 			gameStateRef = gameStateRefIn;
+			scrollFactor.x = scrollFactor.y = 0;
 		}
 		
 		override public function update():void {
@@ -51,28 +52,28 @@ package
 		
 		public function createJelloText():void {
 			//jello text on hot bar
-			jelloText = new JelloText(gameStateRef, 86, 555, 500, "");
+			jelloText = new JelloText(gameStateRef, x + 86, y + 105, 500, "");
 			gameStateRef.add(jelloText);
 			
-			slime1 = new HotBarSlot(1, this, 0);
+			slime1 = new HotBarSlot(1, this, x + 0);
 			gameStateRef.add(slime1);
-			slime2 = new HotBarSlot(2, this, 80);
+			slime2 = new HotBarSlot(2, this, x + 80);
 			gameStateRef.add(slime2);
-			slime3 = new HotBarSlot(3, this, 160);
+			slime3 = new HotBarSlot(3, this, x + 160);
 			gameStateRef.add(slime3);
-			slime4 = new HotBarSlot(4, this, 240);
+			slime4 = new HotBarSlot(4, this, x + 240);
 			gameStateRef.add(slime4);
-			slime5 = new HotBarSlot(5, this, 320);
+			slime5 = new HotBarSlot(5, this, x + 320);
 			gameStateRef.add(slime5);
-			slime6 = new HotBarSlot(6, this, 400);
+			slime6 = new HotBarSlot(6, this, x + 400);
 			gameStateRef.add(slime6);
-			slime7 = new HotBarSlot(7, this, 480);
+			slime7 = new HotBarSlot(7, this, x + 480);
 			gameStateRef.add(slime7);
-			slime8 = new HotBarSlot(8, this, 560);
+			slime8 = new HotBarSlot(8, this, x + 560);
 			gameStateRef.add(slime8);
-			slime9 = new HotBarSlot(9, this, 640);
+			slime9 = new HotBarSlot(9, this, x + 640);
 			gameStateRef.add(slime9);
-			slime10 = new HotBarSlot(10, this, 720);
+			slime10 = new HotBarSlot(10, this, x + 720);
 			gameStateRef.add(slime10);
 		}
 		

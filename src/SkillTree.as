@@ -21,12 +21,13 @@ package
 		
 		public function SkillTree(gameStateRefIn:GameState) 
 		{
-			super(100, 600, skillTreeBG_Image);
+			super(100, 60000, skillTreeBG_Image);
 			gameStateRef = gameStateRefIn;
 			
 			skillTreeWindow = new FlxGroup();
 			//skillTreeWindow.add(STUFF HERE);
 			gameStateRef.add(skillTreeWindow);
+			scrollFactor.x = scrollFactor.y = 0;
 		}
 		
 		override public function update():void {

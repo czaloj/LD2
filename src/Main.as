@@ -9,7 +9,7 @@ package
 	 * ...
 	 * @author Cristian and Trevor
 	 */
-	[SWF(width = "800", height = "600", backgroundColor = "0xffffff")]
+	[SWF(width = "1200", height = "800", backgroundColor = "0xffffff")]
 	public class Main extends FlxGame
 	{
 		
@@ -17,7 +17,7 @@ package
 		public function Main():void 
 		{
 			//start up the menu
-			super(800, 600, CreditState);
+			super(3200, 1280, CreditState);
 		}
 		
 		override protected function create(FlashEvent:Event):void
