@@ -43,7 +43,7 @@ package
 					//skillTreeWindow.visible = true;
 					skillTreeOpened = true;
 				}
-				gameStateRef.jello--;
+				gameStateRef.jello += 15;
 			}
 			if (y < 80) {
 				velocity.y = 0;

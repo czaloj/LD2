@@ -13,7 +13,7 @@ package
 		{
 			super(X, Y, Width, Text, EmbeddedFont);
 			gameStateRef = gameStateRefIn;
-			size = 22;
+			size = 24;
 			color = 0xff000000;
 		}
 		
