@@ -1,5 +1,6 @@
 package game 
 {
+	import flash.utils.*;
 	public class AIController 
 	{
 		public var entity:Entity = null;
@@ -43,6 +44,12 @@ package game
 			}
 			
 			return (bestSkills.length == 0) ? null : bestSkills[(int)(Math.random() * bestSkills.length)];
+		}
+		
+		public function clone():AIController
+		{
+			var c:Class = Class(getDefinitionByName(getQualifiedClassName(this)));
+			return new c();
 		}
 	}
 }

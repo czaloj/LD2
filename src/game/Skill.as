@@ -1,5 +1,6 @@
 package game 
 {
+	import flash.utils.*;
 	public class Skill 
 	{
 		// Owner of the skill
@@ -17,6 +18,12 @@ package game
 		public function execute(state:State, frame:int):Boolean
 		{
 			return false;
+		}
+		
+		public function clone():Skill
+		{
+			var c:Class = Class(getDefinitionByName(getQualifiedClassName(this)));
+			return new c();
 		}
 	}
 }
