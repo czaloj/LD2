@@ -28,6 +28,7 @@ package game
 			
 			// Increase the frame
 			frameCounter++;
+			trace(frameCounter);
 			
 			// Entities perform their decision-making steps
 			for each (entity in entities)

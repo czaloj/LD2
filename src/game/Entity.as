@@ -24,9 +24,11 @@ package game
 		// Simple stats
 		public const stats:EntityStats = new EntityStats();
 		
-		public function Entity(team:int) 
+		public function Entity(team:int, ai:AIController, ...skills) 
 		{
 			this.team = team;
+			this.ai = ai;
+			this.skills.push(skills);
 		}
 		
 		// The decision step

@@ -1,5 +1,6 @@
 package  
 {
+	import game.GameExecutionState;
 	import game.State;
 	import mx.core.FlexSprite;
 	import org.flixel.*;
@@ -37,6 +38,24 @@ package
 		
 		override public function update():void {
 			super.update();
+			
+			switch (state.executionState)
+			{
+				case GameExecutionState.HEROES_WON:
+					// TODO
+					break;
+				case GameExecutionState.SLIMES_WON:
+					// TODO
+					break;
+				case GameExecutionState.PAUSED:
+					break;
+				case GameExecutionState.STILL_PLAYING:
+					state.update();
+					break;
+				default:
+					// Shouldn't happen
+					break;
+			}
 		}
 		
 		public function next():void {
