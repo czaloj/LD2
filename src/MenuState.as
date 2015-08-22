@@ -8,6 +8,7 @@ package
 		
 		override public function create():void {
 			super.create();
+			next();
 		}
 		
 		override public function update():void {
