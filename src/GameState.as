@@ -6,17 +6,13 @@ package
 	
 	public class GameState extends FlxState 
 	{
-
-		[Embed(source = "images/hotbarbg.png")]
-		public var hbBG_Image:Class;
-		public var hbBG:FlxSprite;
-
 		public var state:State = null;
 		
+		//resource
 		public var jello:int = 1337;
-		public var jelloText:JelloText;
 		
 		public var st:SkillTree;
+		public var hb:HotBar;
 		
 		override public function create():void {
 			super.create();
@@ -27,11 +23,10 @@ package
 			add(tempWhite);
 			
 			//hot bar stuff
-			hbBG = new FlxSprite(0, 450, hbBG_Image);
-			add(hbBG);
-			//jello text on hot bar
-			jelloText = new JelloText(this, 86, 555, 500, "");
-			add(jelloText);
+			hb = new HotBar(this);
+			add(hb);
+			hb.createJelloText();
+			
 			// Create the game state here
 			state = new State();
 			
