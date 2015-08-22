@@ -13,7 +13,7 @@ package
 		public var state:State = null;
 		
 		//resource
-		public var jello:int = 1337;
+		public var jello:int = 44;
 		
 		public var st:SkillTree;
 		public var hb:HotBar;
@@ -21,6 +21,11 @@ package
 		public var cam:FlxCamera;
 		public var player:FlxSprite;
 		public var cloudGroup:FlxGroup;
+		public var slimeOreGroup:FlxGroup;
+		public var slimeGroup:FlxGroup;
+		
+		public var oreMax:int = 100;
+		public var base:Base;
 		
 		override public function create():void {
 			super.create();
@@ -35,6 +40,11 @@ package
 			add(cloudGroup);
 			makeClouds();
 			add(mapbg);
+			
+			slimeGroup = new FlxGroup();
+			slimeOreGroup = new FlxGroup();
+			add(slimeOreGroup);
+			slimeOreGroup.add(new SlimeOre(2900, 809));
 			
 			//hot bar stuff
 			hb = new HotBar(this);
@@ -60,7 +70,8 @@ package
 			//cam.color = 0xFFCCCC; // add a light red tint to the camera to differentiate it from the other
 			FlxG.addCamera(cam);
 			
-			
+			base = new Base(2100, 768);
+			add(base);
 		}
 		
 		override public function update():void {
@@ -109,7 +120,8 @@ package
 		
 		public function makeSlime():void {
 			var newSlime:Slime = new Slime(this, (player.x+600)+(-200+(Math.random()*400)), 500);
-			add(newSlime);
+			slimeGroup.add(newSlime);
+			add(slimeGroup);
 		}
 		
 		public function makeClouds():void {
