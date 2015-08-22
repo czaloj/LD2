@@ -32,18 +32,18 @@ package game
 			// Entities perform their decision-making steps
 			for each (entity in entities)
 			{
-				entity.decide();
+				entity.decide(this);
 			}
 			
 			// Entities act on their decisions
 			for each (entity in entities)
 			{
-				entity.act();
+				entity.act(this);
 			}
 
-			// Resolve physics
+			// TODO Resolve physics
 			
-			// Perform combat logic resolution
+			// TODO Perform combat logic resolution
 			var killCount:int = 0;
 			
 			// Cleanup killed entities

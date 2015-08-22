@@ -1,5 +1,7 @@
 package game 
 {
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
 	public class Entity 
 	{
 		// Team for enemy
@@ -14,6 +16,10 @@ package game
 		// The skill in use by this entity
 		private var skillExecutionFrame:int = 0;
 		private var activeSkill:Skill = null;
+
+		// Physics and positional information
+		public const center:Point = new Point();
+		public const halfRect:Rectangle = new Rectangle();
 		
 		// Simple stats
 		public const stats:EntityStats = new EntityStats();
@@ -24,21 +30,21 @@ package game
 		}
 		
 		// The decision step
-		public function decide():void
+		public function decide(state:State):void
 		{
 			if ((ai != null) && (activeSkill == null))
 			{
-				activeSkill = ai.chooseSkill(skills);
+				activeSkill = ai.chooseSkill(state, skills);
 			}
 		}
 		
 		// The acting step
-		public function act():void
+		public function act(state:State):void
 		{
 			if (activeSkill != null)
 			{
 				skillExecutionFrame++;
-				if (!activeSkill.execute(skillExecutionFrame))
+				if (!activeSkill.execute(state, skillExecutionFrame))
 				{
 					activeSkill = null;
 				}
