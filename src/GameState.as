@@ -5,48 +5,40 @@ package
 	
 	public class GameState extends FlxState 
 	{
-		[Embed(source = "images/skilltreebg.png")]
-		public var skillTreeBG_Image:Class;
+		[Embed(source = "images/hotbarbg.png")]
+		public var hbBG_Image:Class;
+		public var hbBG:FlxSprite;
 		
-		public var skillTreeWindow:FlxGroup;
-		public var skillTreeBG:FlxSprite;
+		public var jello:int = 1337;
+		public var jelloText:JelloText;
 		
-		public var skillTreeOpened:Boolean = false;
+		public var st:SkillTree;
 		
 		override public function create():void {
 			super.create();
+			//temporary blue background
+			var tempWhite:FlxSprite = new FlxSprite(0, 0);
+			tempWhite.makeGraphic(800, 600, 0xff66ccff);
+			add(tempWhite);
 			
-			skillTreeWindow = new FlxGroup();
+			//hot bar stuff
+			hbBG = new FlxSprite(0, 450, hbBG_Image);
+			add(hbBG);
+			//jello text on hot bar
+			jelloText = new JelloText(this, 86, 555, 500, "");
+			add(jelloText);
 			
-			skillTreeBG = new FlxSprite(100, 80, skillTreeBG_Image);
-			skillTreeWindow.add(skillTreeBG);
-			add(skillTreeWindow);
-			//skillTreeWindow.visible = false;
+			//add the skill tree window
+			st = new SkillTree(this);
+			add(st);
 		}
 		
 		override public function update():void {
 			super.update();
-			
-			if (FlxG.keys.justPressed("E")) {
-				if (skillTreeOpened) {
-					skillTreeBG.y = 80;
-					skillTreeBG.velocity.y = 2300;
-					//skillTreeWindow.visible = false;
-					skillTreeOpened = false;
-				} else {
-					skillTreeBG.y = 600;
-					skillTreeBG.velocity.y = -2300;
-					//skillTreeWindow.visible = true;
-					skillTreeOpened = true;
-				}
-			}
-			if (skillTreeBG.y < 80) {
-				skillTreeBG.velocity.y = 0;
-				skillTreeBG.y = 80;
-			}
 		}
 		
 		public function next():void {
+			//go back to menu
 			FlxG.switchState(new MenuState());
 		}
 	}
