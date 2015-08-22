@@ -68,11 +68,11 @@ package
 			//jello++;
 			
 			//CAMERA MOVEMENT
-			if (FlxG.keys.A) {
-				player.x -= 20;
+			if (FlxG.mouse.x < 200) {
+				player.x -= (200-FlxG.mouse.x)/6;
 			}
-			if (FlxG.keys.D) {
-				player.x += 20;
+			if (FlxG.mouse.x > 1000) {
+				player.x += (FlxG.mouse.x-1000)/6;
 			}
 			if (player.x < 0)
 				player.x = 0;
