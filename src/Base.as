@@ -1,6 +1,7 @@
 package  
 {
 	import org.flixel.FlxSprite;
+	import graphics.SpriteSheet;
 	
 	/**
 	 * ...
@@ -11,8 +12,8 @@ package
 		
 		public function Base(X:Number=0, Y:Number=0) 
 		{
-			super(X, Y);
-			makeGraphic(128, 128, 0xff666666);
+			super(X-50, Y-105, SpriteSheet.slimeKing);
+			//makeGraphic(128, 128, 0xff666666);
 		}
 		
 	}

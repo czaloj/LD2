@@ -95,6 +95,10 @@ package
 			knockbackcd = amt/6;
 			hp -= amt;
 		}
+		
+		public function pureknockback(amt:int):void {
+			knockbackcd = amt/6;
+		}
 	}
 
 }
