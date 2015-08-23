@@ -13,10 +13,13 @@ package
 		[Embed(source = "images/miner.png")]
 		public var miner_Image:Class;
 		
+		[Embed(source = "images/Fighter.png")]
+		public var fighter_Image:Class;
+		
 		public var state:State = null;
 		
 		//resource
-		public var jello:int = 44;
+		public var jello:int = 44000;
 		
 		public var st:SkillTree;
 		public var hb:HotBar;
@@ -124,10 +127,18 @@ package
 			FlxG.switchState(new MenuState());
 		}
 		
-		public function makeSlime():void {
-			var newSlime:Slime = new Slime(this, 2600, 808);
-			slimeGroup.add(newSlime);
-			add(slimeGroup);
+		public function makeSlime(slime:String):void {
+			if (slime == "miner") {
+				var newSlime:Slime = new Slime(this, 2600, 808);
+				slimeGroup.add(newSlime);
+				add(slimeGroup);
+			}
+			if (slime == "fighter") {
+				var newSlime2:SlimeFighter = new SlimeFighter(this, 2600, 808);
+				slimeGroup.add(newSlime2);
+				add(slimeGroup);
+			}
+			
 		}
 		
 		public function makeClouds():void {
