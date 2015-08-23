@@ -11,7 +11,7 @@ package
 		public var moveSpeed:Number = 1;
 		public var freezecd:int = 0;
 		public var knockbackcd:int = 0;
-		public var hp:int = 1000;
+		public var hp:int = 2500;
 		
 		public var healthbar:FlxSprite;
 		public var healthtext:FlxText;
@@ -47,7 +47,7 @@ package
 				healthtext.y = y - 58;
 				healthbar.x = x-15;
 				healthbar.y = y - 45;
-				healthbar.makeGraphic(Math.ceil((hp / 1000) * 75), 6, 0x85ff0000);
+				healthbar.makeGraphic(Math.ceil((hp / 2500) * 75), 6, 0x85ff0000);
 			}
 			
 			if (freezecd > 0) {

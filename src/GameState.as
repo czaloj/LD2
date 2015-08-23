@@ -25,6 +25,8 @@ package
 		public var slimeGroup:FlxGroup;
 		public var emitterGroup:FlxGroup;
 		private var heroParty:HeroParty;
+		public var buffGroup:FlxGroup;
+		public var healGroup:FlxGroup;
 		
 		public var oreMax:int = 25;
 		public var base:Base;
@@ -87,6 +89,12 @@ package
 			//hero test
 			hero = new HeroMelee(this, 50, 807);
 			add(hero);
+			
+			buffGroup = new FlxGroup();
+			add(buffGroup);
+			
+			healGroup = new FlxGroup();
+			add(healGroup);
 		}
 		
 		override public function update():void {
@@ -184,6 +192,32 @@ package
 				var newCloud:Cloud = new Cloud();
 				cloudGroup.add(newCloud);
 			}
+		}
+		
+		public function createHeal(xin:int, yin:int):void
+		{
+			var emitter:FlxEmitter = new FlxEmitter();
+			//emitter.gravity = 800;
+			emitter.setXSpeed(-75, 75);
+			emitter.setYSpeed(-200, -225);
+			emitter.bounce = 0.5;
+			var particles: int = 4;
+			
+			var pSize:int = 5;
+			for(var i: int = 0; i < particles; i++)
+			{
+				var particle:FlxParticle = new FlxParticle();
+				particle.makeGraphic(pSize, pSize, 0x75ff66cc);
+				particle.exists = false;
+				particle.x += (Math.random() * 16);
+				emitter.add(particle);
+			}
+			emitter.start(true, 0.4);
+			emitterGroup.add(emitter);
+			emitter.x = xin;
+			emitter.y = yin;
+			emitter.y += 16;
+			add(emitterGroup);
 		}
 	}
 }

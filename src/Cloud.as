@@ -19,7 +19,7 @@ package
 		
 		override public function update():void {
 			if (x > 3200) {
-				x = 0;
+				x = -480;
 			}
 		}
 	}

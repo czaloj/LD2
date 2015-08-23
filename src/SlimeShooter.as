@@ -23,6 +23,10 @@ package
 		public var shotCD:int;
 		public var justHurt:int = 0;
 		
+		public var aBuff:int = 0;
+		public var tBuff:int = 0;
+		public var justHealed:int = 0;
+		
 		public function SlimeShooter(gameStateRefIn:GameState, X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
 			super(X, Y, SpriteSheet.slimeShooter);
@@ -46,12 +50,12 @@ package
 			} else {
 				healthbar.x = x-5;
 				healthbar.y = y-3;
-				healthbar.makeGraphic(Math.ceil((hp / 100) * 40), 6, 0x85ff0000);
+				healthbar.makeGraphic(Math.ceil((hp / stats.health) * 40), 6, 0x85ff0000);
 			}
 			shotCD--;
 			if (shotCD < 1) {
 				shotCD = shotCDfinal;
-				var newBullet:ShooterBullet = new ShooterBullet(gameStateRef, x+8, y+20);
+				var newBullet:ShooterBullet = new ShooterBullet(gameStateRef, x+8, y+20, aBuff);
 				gameStateRef.add(newBullet);
 			}
 			
@@ -82,6 +86,26 @@ package
 				gameStateRef.add(hurtText1);
 				hp -= herodamage;
 				justHurt = 10;
+			}
+			
+			if (tBuff > 0) {
+				tBuff--;
+			} else {
+				aBuff = 1;
+			}
+			
+			if (justHealed > 0) {
+				justHealed--;
+			}
+			if (FlxG.overlap(this, gameStateRef.healGroup) && justHealed == 0) {
+				hp++;
+				justHealed = 5;
+				gameStateRef.createHeal(x, y+32);
+			}
+			
+			if (FlxG.overlap(this, gameStateRef.buffGroup)) {
+				stats.attack = 30;
+				aBuff = 2;
 			}
 			
 			if (y > 896-40)

@@ -13,11 +13,11 @@ package
 		{
 			super(X, Y, 500, "" + amt);
 			if (type == "hero") {
-				color = 0xff888800;
+				color = 0xffffffff;
 			} else if (type == "slime") {
-				color = 0xff888888;
-			} else if (type == "base") {
 				color = 0xff880000;
+			} else if (type == "base") {
+				color = 0xffff0000;
 			}
 			size = 18;
 			velocity.y = -25;

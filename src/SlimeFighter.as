@@ -21,6 +21,10 @@ package
 		
 		public var referenceStats:EntityStats;
 		
+		public var aBuff:int = 0;
+		public var tBuff:int = 0;
+		public var justHealed:int = 0;
+		
 		public function SlimeFighter(gameStateRefIn:GameState, X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
 			super(X, Y, SpriteSheet.slimeFighter);
@@ -33,6 +37,9 @@ package
 		}
 		
 		override public function update():void {
+			if (hp > stats.health) {
+				hp = stats.health;
+			}
 			if (justHurt > 0) {
 				justHurt--;
 			}
@@ -44,7 +51,7 @@ package
 			} else {
 				healthbar.x = x-5;
 				healthbar.y = y-3;
-				healthbar.makeGraphic(Math.ceil((hp / 100) * 40), 6, 0x85ff0000);
+				healthbar.makeGraphic(Math.ceil((hp / stats.health) * 40), 6, 0x85ff0000);
 			}
 			
 			var dest:int = gameStateRef.hero.x;
@@ -69,7 +76,7 @@ package
 			if (FlxG.overlap(this, gameStateRef.hero) && justHurt == 0) {
 				velocity.x += 300;
 				velocity.y -= 150;
-				var damage:int = stats.attack;
+				var damage:int = stats.attack*aBuff;
 				var herodamage:int = Math.ceil(25 + Math.random() * 10);
 				gameStateRef.hero.knockback(damage);
 				var hurtText1:HurtText = new HurtText("slime", herodamage, x + 16, y - 16);
@@ -78,6 +85,26 @@ package
 				gameStateRef.add(hurtText2);
 				hp -= herodamage;
 				justHurt = 10;
+			}
+			
+			if (tBuff > 0) {
+				tBuff--;
+			} else {
+				aBuff = 1;
+			}
+			
+			if (FlxG.overlap(this, gameStateRef.buffGroup)) {
+				aBuff = 2;
+				tBuff = 30;
+			}
+			
+			if (justHealed > 0) {
+				justHealed--;
+			}
+			if (FlxG.overlap(this, gameStateRef.healGroup) && justHealed == 0) {
+				hp++;
+				gameStateRef.createHeal(x, y+32);
+				justHealed = 5;
 			}
 			
 			if (y > 896-40)
