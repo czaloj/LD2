@@ -1,5 +1,6 @@
 package  
 {
+	import game.EntityStats;
 	import graphics.SpriteSheet;
 	import org.flixel.*;
 	
@@ -67,34 +68,34 @@ package
 					switch(spawnType)
 					{
 						case SPAWN_TYPE_AUGMENTOR:
-							spawnIfJello("augmentor", 250, 50);
+							spawnIfJello("augmentor", 250, EntityStats.AUGMENTOR.cooldown);
 							break;
 						case SPAWN_TYPE_BARRIER:
-							spawnIfJello("barrier", 125, 50);
+							spawnIfJello("barrier", 125, EntityStats.BARRIER.cooldown);
 							break;
 						case SPAWN_TYPE_BOMBER:
-							spawnIfJello("bomber", 225, 50);
+							spawnIfJello("bomber", 225, EntityStats.BOMBER.cooldown);
 							break;
 						case SPAWN_TYPE_CLEAVER:
-							spawnIfJello("cleaver", 90, 50);
+							spawnIfJello("cleaver", 90, EntityStats.CLEAVER.cooldown);
 							break;
 						case SPAWN_TYPE_DESTRUCTOR:
-							spawnIfJello("destructor", 300, 50);
+							spawnIfJello("destructor", 300, EntityStats.DESTRUCTOR.cooldown);
 							break;
 						case SPAWN_TYPE_FIGHTER:
-							spawnIfJello("fighter", 75, 150);
+							spawnIfJello("fighter", 75, EntityStats.FIGHTER.cooldown);
 							break;
 						case SPAWN_TYPE_FREEZER:
-							spawnIfJello("freezer", 500, 50);
+							spawnIfJello("freezer", 500, EntityStats.FREEZER.cooldown);
 							break;
 						case SPAWN_TYPE_HEALER:
-							spawnIfJello("healer", 150, 50);
+							spawnIfJello("healer", 150, EntityStats.HEALER.cooldown);
 							break;
 						case SPAWN_TYPE_MINER:
-							spawnIfJello("miner", 40, 50);
+							spawnIfJello("miner", 40, EntityStats.MINER.cooldown);
 							break;
 						case SPAWN_TYPE_SHOOTER:
-							spawnIfJello("shooter", 80, 50);
+							spawnIfJello("shooter", 80, EntityStats.SHOOTER.cooldown);
 							break;
 					}
 					

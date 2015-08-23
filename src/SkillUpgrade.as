@@ -64,17 +64,12 @@ package
 		{
 			if (target & TARGET_ATTACK) stats.attack += attack;
 			if (target & TARGET_HEALTH) stats.health += health;
-			if (target & TARGET_ATTACK_SPEED) stats.attack += attackSpeed; // TODO
+			if (target & TARGET_ATTACK_SPEED) stats.attackSpeed += attackSpeed;
 			if (target & TARGET_MOVESPEED) stats.moveSpeed += moveSpeed;
-			if (target & TARGET_SPECIAL_1) stats.attack += special1; // TODO
-			if (target & TARGET_SPECIAL_2) stats.attack += special2; // TODO
-			if (target & TARGET_SPECIAL_3) stats.attack += special3; // TODO
-			if (target & TARGET_COOLDOWN) 
-			{
-				// TODO
-			}
-			
-			
+			if (target & TARGET_SPECIAL_1) stats.special1 += special1;
+			if (target & TARGET_SPECIAL_2) stats.special2 += special2;
+			if (target & TARGET_SPECIAL_3) stats.special3 += special3;
+			if (target & TARGET_COOLDOWN) stats.cooldown += coolDown;
 		}
 	}
 
