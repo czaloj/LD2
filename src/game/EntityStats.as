@@ -11,6 +11,7 @@ package game
 		public static const FREEZER:EntityStats = new EntityStats(100, 30, 130.0, 0.0);
 		public static const HEALER:EntityStats = new EntityStats(100, 30, 175, 0.0);
 		public static const SHOOTER:EntityStats = new EntityStats(100, 15, 1.0, 0.0);
+		public static const MINER:EntityStats = new EntityStats(100, 15, 1.0, 0.0);
 		
 		public function EntityStats(h:int, a:int, m:Number, c:Number)
 		{

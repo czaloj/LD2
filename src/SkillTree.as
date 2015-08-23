@@ -1,5 +1,6 @@
 package  
 {
+	import game.EntityStats;
 	import org.flixel.*;
 	
 	/**
@@ -18,6 +19,8 @@ package
 		public var skillTreeOpened:Boolean = false;
 		
 		public var gameStateRef:GameState;
+		
+		private var skillPaths:Array = null;
 		
 		public function SkillTree(gameStateRefIn:GameState) 
 		{
@@ -52,6 +55,52 @@ package
 			}
 		}
 		
+		private function generateSkillPaths():void
+		{
+			skillPaths = new Array();
+			skillPaths.length = 10;
+			skillPaths[SlimeID.AUGMENTOR] = new SkillPath(EntityStats.AUGMENTOR);
+			// TODO Add Stats
+			
+			skillPaths[SlimeID.BARRIER] = new SkillPath(EntityStats.BARRIER);
+			// TODO Add Stats
+			
+			skillPaths[SlimeID.BOMBER] = new SkillPath(EntityStats.BOMBER);
+			// TODO Add Stats
+			
+			skillPaths[SlimeID.CLEAVER] = new SkillPath(EntityStats.CLEAVER);
+			// TODO Add Stats
+			
+			skillPaths[SlimeID.DESTRUCTOR] = new SkillPath(EntityStats.DESTRUCTOR);
+			// TODO Add Stats
+			
+			skillPaths[SlimeID.FIGHTER] = new SkillPath(EntityStats.FIGHTER);
+			skillPaths[SlimeID.FIGHTER].setTier1Upgrades(
+				new SkillUpgrade(SkillUpgrade.TARGET_ATTACK, 10), // TODO Change these probably
+				new SkillUpgrade(SkillUpgrade.TARGET_HEALTH, 10),
+				new SkillUpgrade(SkillUpgrade.TARGET_MOVESPEED, 10, SkillUpgrade.TARGET_HEALTH, 5),
+				new SkillUpgrade(SkillUpgrade.TARGET_ATTACK, 10),
+				new SkillUpgrade(SkillUpgrade.TARGET_ATTACK, 30, SkillUpgrade.TARGET_HEALTH, 5)
+			);
+			skillPaths[SlimeID.FIGHTER].setTier2Upgrades(
+				// TODO 15 Upgrades
+			);
+			skillPaths[SlimeID.FIGHTER].setTier3Upgrades(
+				// TODO 45 Upgrades
+			);
+			
+			skillPaths[SlimeID.FREEZER] = new SkillPath(EntityStats.FREEZER);
+			// TODO Add Stats
+			
+			skillPaths[SlimeID.HEALER] = new SkillPath(EntityStats.HEALER);
+			// TODO Add Stats
+			
+			skillPaths[SlimeID.MINER] = new SkillPath(EntityStats.MINER);
+			// TODO Add Stats
+			
+			skillPaths[SlimeID.SHOOTER] = new SkillPath(EntityStats.SHOOTER);
+			// TODO Add Stats			
+		}
 	}
 
 }

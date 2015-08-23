@@ -9,17 +9,16 @@ package
 	 */
 	public class HotBarSlot extends FlxSprite 
 	{
-		private static const SPAWN_TYPE_FIGHTER:int = 1;
-		private static const SPAWN_TYPE_SHOOTER:int = 2;
-		private static const SPAWN_TYPE_CLEAVER:int = 3;
-		private static const SPAWN_TYPE_BOMBER:int = 4;
-		private static const SPAWN_TYPE_BARRIER:int = 5;
-		private static const SPAWN_TYPE_DESTRUCTOR:int = 6;
-		private static const SPAWN_TYPE_HEALER:int = 7;
-		private static const SPAWN_TYPE_AUGMENTOR:int = 8;
-		private static const SPAWN_TYPE_FREEZER:int = 9;
-		private static const SPAWN_TYPE_MINER:int = 10;
-		
+		private static const SPAWN_TYPE_FIGHTER:int = SlimeID.FIGHTER;
+		private static const SPAWN_TYPE_SHOOTER:int = SlimeID.SHOOTER;
+		private static const SPAWN_TYPE_CLEAVER:int = SlimeID.CLEAVER;
+		private static const SPAWN_TYPE_BOMBER:int = SlimeID.BOMBER;
+		private static const SPAWN_TYPE_BARRIER:int = SlimeID.BARRIER;
+		private static const SPAWN_TYPE_DESTRUCTOR:int = SlimeID.DESTRUCTOR;
+		private static const SPAWN_TYPE_HEALER:int = SlimeID.HEALER;
+		private static const SPAWN_TYPE_AUGMENTOR:int = SlimeID.AUGMENTOR;
+		private static const SPAWN_TYPE_FREEZER:int = SlimeID.FREEZER;
+		private static const SPAWN_TYPE_MINER:int = SlimeID.MINER;
 		
 		[Embed(source = "images/hb_slot.png")]
 		public var hb_slot_Image:Class;
