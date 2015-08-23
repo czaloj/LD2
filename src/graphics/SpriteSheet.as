@@ -18,7 +18,7 @@ package graphics
 		[Embed(source = "../images/Barrier.png")]
 		public static var slimeBarrier:Class;
 		
-		[Embed(source = "../images/Destructor.png")]
+		[Embed(source = "../images/Destructer.png")]
 		public static var slimeDestructor:Class;
 		
 		[Embed(source = "../images/Healer.png")]

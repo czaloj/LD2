@@ -12,7 +12,6 @@ package
 		public var gameStateRef:GameState;
 		public var inAir:Boolean = false;
 		
-		public var hp:int = 100;
 		public var healthbar:FlxSprite;
 		
 		public function SlimeFighter(gameStateRefIn:GameState, X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 

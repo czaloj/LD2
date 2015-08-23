@@ -124,31 +124,31 @@ package
 			switch (spawnType) {
 				//evo 1		
 				case SPAWN_TYPE_AUGMENTOR:
-					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeAugmentor);
 					break;
 				case SPAWN_TYPE_BARRIER:
-					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					img = new FlxSprite(x+22, y + 17, SpriteSheet.slimeBarrier);
 					break;
 				case SPAWN_TYPE_BOMBER:
-					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeBomber);
 					break;
 				case SPAWN_TYPE_CLEAVER:
-					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeCleaver);
 					break;
 				case SPAWN_TYPE_DESTRUCTOR:
-					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeDestructor);
 					break;
 				case SPAWN_TYPE_FIGHTER:
 					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
 					break;
 				case SPAWN_TYPE_FREEZER:
-					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFreezer);
 					break;
 				case SPAWN_TYPE_HEALER:
-					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeHealer);
 					break;
 				case SPAWN_TYPE_SHOOTER:
-					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeShooter);
 					break;
 				case SPAWN_TYPE_MINER:
 					var img:FlxSprite = new FlxSprite(x+22, y + 11, SpriteSheet.slimeMiner);
