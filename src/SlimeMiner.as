@@ -31,8 +31,8 @@ package
 		}
 		
 		override public function update():void {
-			oreText.x = x-10;
-			oreText.y = y-10;
+			oreText.x = x-16;
+			oreText.y = y-16;
 			oreText.text = "" + ore;
 
 			if (ore < gameStateRef.oreMax) {
@@ -47,7 +47,7 @@ package
 						velocity.x -= 50+(Math.random() * 200);
 					}
 				} else {
-					if (y >= 896-32) {
+					if (y >= 896-40) {
 						acceleration.y = 0;
 						velocity.x /= 5;
 						inAir = false;
@@ -78,7 +78,7 @@ package
 					velocity.x -= 50+(Math.random() * 200);
 				}
 				} else {
-					if (y >= 896-32) {
+					if (y >= 896-40) {
 						acceleration.y = 0;
 						velocity.x /= 5;
 						inAir = false;
@@ -91,8 +91,8 @@ package
 				}
 			}
 			
-			if (y > 896-32)
-				y = 896-32;
+			if (y > 896-40)
+				y = 896-40;
 		}
 		
 		public function createDust():void
