@@ -117,6 +117,8 @@ package
 				hbRef.gameStateRef.makeSlime(spawnName);
 				hbRef.gameStateRef.jello -= jello;
 				cd = cooldown;								
+			} else {
+				hbRef.gameStateRef.message("You need " + jello + " Jello");
 			}
 		}
 		

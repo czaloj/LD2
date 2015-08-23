@@ -13,7 +13,7 @@ package
 		public var state:State = null;
 		
 		//resource
-		public var jello:int = 44000;
+		public var jello:int = 500;
 		
 		public var st:SkillTree;
 		public var hb:HotBar;
@@ -32,6 +32,7 @@ package
 		public var base:Base;
 		
 		public var hero:HeroMelee;
+		public var messageText:FlxText;
 		
 		override public function create():void {
 			super.create();
@@ -81,7 +82,7 @@ package
 			
 			// Spawn the party
 			//heroParty = new HeroParty(this);
-			//heroParty.spawn();
+			//heroParty.spawn();			
 			
 			//add the skill tree window
 			st = new SkillTree(this);
@@ -95,11 +96,22 @@ package
 			
 			healGroup = new FlxGroup();
 			add(healGroup);
+			
+			messageText = new FlxText(0, 20, 1200, "");
+			messageText.size = 26;
+			messageText.alignment = "center";
+			messageText.alpha = 0;
+			messageText.color = 0xffffffff;
+			messageText.scrollFactor.x = messageText.scrollFactor.y = 0;
+			add(messageText);
 		}
 		
 		override public function update():void {
 			super.update();
 			//jello++;
+			if (messageText.alpha > 0) {
+				messageText.alpha -= 0.005;
+			}
 			
 			//CAMERA MOVEMENT
 			if (FlxG.mouse.x < 200) {
@@ -218,6 +230,11 @@ package
 			emitter.y = yin;
 			emitter.y += 16;
 			add(emitterGroup);
+		}
+		
+		public function message(str:String):void {
+			messageText.text = str;
+			messageText.alpha = 1;
 		}
 	}
 }
