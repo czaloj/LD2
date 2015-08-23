@@ -32,8 +32,22 @@ package game
 		public var criticalChance:Number = 0.0; // (0 - 1)
 		public var attackSpeed:Number = 50.0;
 		public var cooldown:int = 0;
+		
 		public var special1:int = 0;
+		public function get barrierDamageReturn():int { return special1; }
+		public function get healAmount():int { return special1; }
+		public function get buffHealth():int { return special1; }
+		public function get slowAmount():int { return special1; }
+		public function get miningAmount():int { return special1; }
+		
 		public var special2:int = 0;
+		public function get barrierKnockback():int { return special2; }
+		public function get healSpeed():int { return special2; }
+		public function get buffDamage():int { return special2; }
+		public function get slowLength():int { return special2; }
+		public function get oreCapacity():int { return special2; }
+		
 		public var special3:int = 0;
+		public function get buffAttackSpeed():int { return special3; }
 	}
 }
