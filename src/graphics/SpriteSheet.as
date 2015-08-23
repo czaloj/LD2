@@ -10,6 +10,9 @@ package graphics
 		 * SLIMES
 		 */
 		
+		[Embed(source = "../images/kingslime.png")]
+		public static var slimeKing:Class;
+		
 		[Embed(source = "../images/Shooter.png")]
 		public static var slimeShooter:Class;
 
