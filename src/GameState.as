@@ -29,6 +29,8 @@ package
 		public var oreMax:int = 25;
 		public var base:Base;
 		
+		public var hero:HeroMelee;
+		
 		override public function create():void {
 			super.create();
 		
@@ -56,9 +58,7 @@ package
 			// Create the game state here
 			state = new State();
 			
-			//add the skill tree window
-			st = new SkillTree(this);
-			add(st);
+			
 			
 			player = new FlxSprite(2000, 350);
 			player.makeGraphic(1200, 800, 0x00000000);
@@ -78,8 +78,15 @@ package
 			emitterGroup = new FlxGroup();
 			
 			// Spawn the party
-			heroParty = new HeroParty(this);
-			heroParty.spawn();
+			//heroParty = new HeroParty(this);
+			//heroParty.spawn();
+			
+			//add the skill tree window
+			st = new SkillTree(this);
+			
+			//hero test
+			hero = new HeroMelee(this, 50, 807);
+			add(hero);
 		}
 		
 		override public function update():void {

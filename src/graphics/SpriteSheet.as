@@ -2,6 +2,10 @@ package graphics
 {
 	public class SpriteSheet 
 	{
+		//projectile
+		//[Embed(source = "../images/ShooterBullet.png")]
+		//public static var shooterBullet:Class;
+		
 		/**
 		 * SLIMES
 		 */
@@ -40,8 +44,12 @@ package graphics
 		 * HEROES
 		 */
 		
-		[Embed(source = "../images/miner.png")]
+		[Embed(source = "../images/hero_warrior.png")]
 		public static var heroMelee:Class;
+		[Embed(source = "../images/hero_warrior_2.png")]
+		public static var heroMelee2:Class;
+		[Embed(source = "../images/hero_warrior_frozen.png")]
+		public static var heroMelee_frozen:Class;
 		
 		[Embed(source = "../images/miner.png")]
 		public static var heroRanger:Class;

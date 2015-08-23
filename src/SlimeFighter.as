@@ -17,6 +17,7 @@ package
 		
 		public var hp:int = EntityStats.FIGHTER.health;
 		public var stats:EntityStats = EntityStats.FIGHTER;
+		public var justHurt:int = 0;
 		
 		public var referenceStats:EntityStats;
 		
@@ -32,6 +33,9 @@ package
 		}
 		
 		override public function update():void {
+			if (justHurt > 0) {
+				justHurt--;
+			}
 			if (hp < 1) {
 				//death
 				gameStateRef.slimeGroup.remove(this);
@@ -43,16 +47,16 @@ package
 				healthbar.makeGraphic(Math.ceil((hp / 100) * 40), 6, 0x85ff0000);
 			}
 			
-			var dest:int = 50;
+			var dest:int = gameStateRef.hero.x;
 			if (!inAir) {
 				velocity.y = -150; //+ (Math.random() * -800);
 				inAir = true;
 				acceleration.y = 1000;
 				if (dest > x) {
-					velocity.x += 50+(Math.random() * 200);
+					velocity.x += EntityStats.FIGHTER.moveSpeed+(Math.random() * 100);
 				}
 				if (dest < x) {
-					velocity.x -= 50+(Math.random() * 200);
+					velocity.x -= EntityStats.FIGHTER.moveSpeed+(Math.random() * 100);
 				}
 			} else {
 				if (y >= 896-40) {
@@ -60,6 +64,20 @@ package
 					velocity.x /= 5;
 					inAir = false;
 				}
+			}
+			
+			if (FlxG.overlap(this, gameStateRef.hero) && justHurt == 0) {
+				velocity.x += 300;
+				velocity.y -= 150;
+				var damage:int = stats.attack;
+				var herodamage:int = Math.ceil(25 + Math.random() * 10);
+				gameStateRef.hero.knockback(damage);
+				var hurtText1:HurtText = new HurtText("slime", herodamage, x + 16, y - 16);
+				gameStateRef.add(hurtText1);
+				var hurtText2:HurtText = new HurtText("hero", damage, gameStateRef.hero.x + 16, gameStateRef.hero.y - 16);
+				gameStateRef.add(hurtText2);
+				hp -= herodamage;
+				justHurt = 10;
 			}
 			
 			if (y > 896-40)

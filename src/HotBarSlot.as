@@ -86,7 +86,7 @@ package
 							spawnIfJello("fighter", 75, 150);
 							break;
 						case SPAWN_TYPE_FREEZER:
-							spawnIfJello("freezer", 44, 50);
+							spawnIfJello("freezer", 500, 50);
 							break;
 						case SPAWN_TYPE_HEALER:
 							spawnIfJello("healer", 44, 50);
@@ -151,12 +151,15 @@ package
 					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeShooter);
 					break;
 				case SPAWN_TYPE_MINER:
-					var img:FlxSprite = new FlxSprite(x+22, y + 11, SpriteSheet.slimeMiner);
+					var img:FlxSprite = new FlxSprite(x + 22, y + 11, SpriteSheet.slimeMiner);
+					hbRef.gameStateRef.add(hbRef.gameStateRef.st);
 					break;
 			}
 			img.scrollFactor.x = img.scrollFactor.y = 0;
 			img.scale = new FlxPoint(2, 2);
 			hbRef.gameStateRef.add(img);
+			
+			
 
 		}
 	}

@@ -1,26 +1,68 @@
-package 
+package  
 {
+	import game.EntityStats;
 	import graphics.SpriteSheet;
-	import org.flixel.FlxSprite;
+	import org.flixel.*;
 	
+	/**
+	 * ...
+	 * @author Wisp X
+	 */
 	public class SlimeFreezer extends FlxSprite 
 	{
-		private var state:GameState;
+		public var gameStateRef:GameState;
+		public var inAir:Boolean = false;
 		
-		public function SlimeFreezer(state:GameState, X:Number=0, Y:Number=0) 
+		public var healthbar:FlxSprite;
+		
+		//public var hp:int = EntityStats.FREEZER.health;
+		//public var stats:EntityStats = EntityStats.FREEZER;
+		
+		public var referenceStats:EntityStats;
+		public var shotCDfinal:int = 150;
+		public var shotCD:int;
+		
+		public function SlimeFreezer(gameStateRefIn:GameState, X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
 			super(X, Y, SpriteSheet.slimeFreezer);
-			this.state = state;
+			//makeGraphic(64, 64, 0x8000cc33);
+			gameStateRef = gameStateRefIn;
+			scale = new FlxPoint(2, 2);
 			
-			
+			//healthbar = new FlxSprite(x, y);
+			//gameStateRef.add(healthbar);
 		}
 		
-		override public function update():void 
-		{
-			super.update();
+		override public function update():void {
+			shotCD--;
+			if (shotCD < 1) {
+				shotCD = shotCDfinal;
+				var newBullet:FreezerBullet = new FreezerBullet(gameStateRef, x, y);
+				gameStateRef.add(newBullet);
+			}
 			
+			var dest:int = gameStateRef.hero.x+300;
+			if (!inAir) {
+				velocity.y = -275; //+ (Math.random() * -800);
+				inAir = true;
+				acceleration.y = 1000;
+				if (dest > x) {
+					velocity.x += EntityStats.FREEZER.moveSpeed+(Math.random() * 100);
+				}
+				if (dest < x) {
+					velocity.x -= EntityStats.FREEZER.moveSpeed+(Math.random() * 100);
+				}
+			} else {
+				if (y >= 696-40) {
+					acceleration.y = 0;
+					velocity.x /= 5;
+					inAir = false;
+				}
+			}
 			
-		}
+			if (y > 696-40)
+				y = 696-40;
+		}		
 	}
 
 }
