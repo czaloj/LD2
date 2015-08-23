@@ -85,10 +85,10 @@ package
 				knockbackcd--;
 			}
 			
-			if (x < 2560) {
+			if (x < 2400) {
 				velocity.x = moveSpeed;
 			}
-			if (x > 2560) {
+			if (x > 2400) {
 				velocity.x = -moveSpeed;
 			}
 			if (x < 0) {
