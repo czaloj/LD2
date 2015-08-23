@@ -13,6 +13,7 @@ package
 		public var gameStateRef:GameState;
 		public var dmult:int = 1;
 		public var damagedHero:Boolean = false;
+		public var damagedArcher:Boolean = false;
 		
 		public function BombExplosion(gameStateRefIn:GameState, X:Number=0, Y:Number=0, dmultIn:int=1) 
 		{
@@ -32,6 +33,14 @@ package
 				damagedHero = true;
 				var damage:int = game.EntityStats.BOMBER.attack*dmult;
 				gameStateRef.hero.knockback(damage);
+				var hurtText2:HurtText = new HurtText("hero", damage, gameStateRef.hero.x + 16, gameStateRef.hero.y - 16);
+				gameStateRef.add(hurtText2);
+			}
+			
+			if (FlxG.overlap(this, gameStateRef.archer) && !damagedArcher) {
+				damagedArcher = true;
+				var damage:int = game.EntityStats.BOMBER.attack*dmult;
+				gameStateRef.archer.knockback(damage);
 				var hurtText2:HurtText = new HurtText("hero", damage, gameStateRef.hero.x + 16, gameStateRef.hero.y - 16);
 				gameStateRef.add(hurtText2);
 			}
