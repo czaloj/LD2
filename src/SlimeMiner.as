@@ -19,6 +19,8 @@ package
 			oreText.color = 0xff33333333;
 			oreText.size = 16;
 			gameStateRef.add(oreText);
+			
+			gameStateRef.remove(healthbar);
 		}
 		
 		override public function update():void {
