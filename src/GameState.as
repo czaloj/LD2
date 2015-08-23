@@ -75,7 +75,7 @@ package
 			//cam.color = 0xFFCCCC; // add a light red tint to the camera to differentiate it from the other
 			FlxG.addCamera(cam);
 			
-			base = new Base(2560, 768);
+			base = new Base(this, 2560, 768);
 			add(base);
 			
 			emitterGroup = new FlxGroup();
