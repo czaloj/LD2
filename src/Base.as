@@ -12,7 +12,7 @@ package
 		public var healthbar:FlxSprite;
 		public var healthtext:FlxText;
 		public var hp:int = 2500;
-		public var justHurt = 10;
+		public var justHurt:int = 10;
 		public var state:GameState;
 		
 		public function Base(stateIn:GameState, X:Number=0, Y:Number=0) 

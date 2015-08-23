@@ -32,6 +32,7 @@ package
 		public var base:Base;
 		
 		public var hero:HeroMelee;
+		public var archer:HeroRanger;
 		public var messageText:FlxText;
 		
 		override public function create():void {
@@ -88,8 +89,10 @@ package
 			st = new SkillTree(this);
 			
 			//hero test
-			hero = new HeroMelee(this, 50, 807);
+			hero = new HeroMelee(this, 150, 807);
 			add(hero);
+			archer = new HeroRanger(this, 50, 807);
+			add(archer);
 			
 			buffGroup = new FlxGroup();
 			add(buffGroup);
