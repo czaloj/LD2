@@ -26,7 +26,7 @@ package
 		public static const TARGET_SPECIAL_3:int = 1 << 7;
 		public static const TARGET_BUFF_ATTACK_SPEED:int = TARGET_SPECIAL_3;
 		
-		
+		public var cost:int = 0;
 		public var target:int = 0;
 		
 		public var attack:int = 0;
@@ -38,8 +38,9 @@ package
 		public var special2:int = 0;
 		public var special3:int = 0;
 		
-		public function SkillUpgrade(...changes)
+		public function SkillUpgrade(cost:int, ...changes)
 		{
+			this.cost = cost;
 			for (var i:int = 0; i < changes.length; )
 			{
 				var t:int = changes[i++];
