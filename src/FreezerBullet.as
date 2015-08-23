@@ -1,6 +1,7 @@
 package  
 {
 	import org.flixel.*;
+	import graphics.SpriteSheet;
 	
 	/**
 	 * ...
@@ -13,8 +14,9 @@ package
 		
 		public function FreezerBullet(gameStateRefIn:GameState, X:Number=0, Y:Number=0) 
 		{
-			super(X, Y);
-			makeGraphic(20, 20, 0xffffffff);
+			super(X, Y, SpriteSheet.freezerBullet);
+			scale = new FlxPoint(2, 2);
+			//makeGraphic(20, 20, 0xffffffff);
 			velocity.x = -400;
 			velocity.y = 300;
 			gameStateRef = gameStateRefIn;

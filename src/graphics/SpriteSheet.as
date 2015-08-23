@@ -2,9 +2,18 @@ package graphics
 {
 	public class SpriteSheet 
 	{
-		//projectile
-		//[Embed(source = "../images/ShooterBullet.png")]
-		//public static var shooterBullet:Class;
+		//projectiles
+		[Embed(source = "../images/ShooterBullet.png")]
+		public static var shooterBullet:Class;
+		
+		[Embed(source = "../images/FreezerBullet.png")]
+		public static var freezerBullet:Class;
+		
+		[Embed(source = "../images/BomberBomb.png")]
+		public static var bomberBomb:Class;
+		
+		[Embed(source = "../images/BombShatter.png")]
+		public static var bombShatter:Class;
 		
 		/**
 		 * SLIMES
