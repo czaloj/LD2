@@ -6,31 +6,31 @@ package graphics
 		 * SLIMES
 		 */
 		
-		[Embed(source = "../images/miner.png")]
+		[Embed(source = "../images/Shooter.png")]
 		public static var slimeShooter:Class;
 
-		[Embed(source = "../images/miner.png")]
+		[Embed(source = "../images/Cleaver.png")]
 		public static var slimeCleaver:Class;
 
-		[Embed(source = "../images/miner.png")]
+		[Embed(source = "../images/Bomber.png")]
 		public static var slimeBomber:Class;
 		
-		[Embed(source = "../images/miner.png")]
+		[Embed(source = "../images/Barrier.png")]
 		public static var slimeBarrier:Class;
 		
-		[Embed(source = "../images/miner.png")]
+		[Embed(source = "../images/Destructor.png")]
 		public static var slimeDestructor:Class;
 		
-		[Embed(source = "../images/miner.png")]
+		[Embed(source = "../images/Healer.png")]
 		public static var slimeHealer:Class;
 		
-		[Embed(source = "../images/miner.png")]
+		[Embed(source = "../images/Augmentor.png")]
 		public static var slimeAugmentor:Class;
 		
-		[Embed(source = "../images/miner.png")]
+		[Embed(source = "../images/Freezer.png")]
 		public static var slimeFreezer:Class;
 
-		[Embed(source = "../images/miner.png")]
+		[Embed(source = "../images/Miner.png")]
 		public static var slimeMiner:Class;
 		
 		[Embed(source = "../images/Fighter.png")]
