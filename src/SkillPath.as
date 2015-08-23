@@ -2,21 +2,6 @@ package
 {
 	import game.EntityStats;
 
-	class Node
-	{
-		public var next:Array;
-		public var id:int;
-		public var available:Boolean = true;
-		public var used:Boolean = false;
-		
-		public function Node(id:int, ...nodes)
-		{
-			this.id = id;
-			next = new Array();
-			for each (var n:Node in nodes) next.push(n);
-		}
-	}
-	
 	public class SkillPath
 	{
 		
@@ -66,7 +51,7 @@ package
 				if (no.available)
 				{
 					if (no.id == id) return no;
-					var nf:Node = findNode(n);
+					var nf:Node = findNode(n, id);
 					if (nf != null) return nf;
 				}
 			}
@@ -74,11 +59,11 @@ package
 		}
 		function cull(n:Node, id:int, inTree:Boolean):Boolean
 		{
-			var isFound = n.id == id || inTree;
+			var isFound:Boolean = (n.id == id) || inTree;
 			n.available = isFound;
 			for each(var no:Node in n.next)
 			{
-				n.available |= cull(no, id, isFound);
+				n.available = n.available | cull(no, id, isFound);
 			}
 			return n.available;
 		}
@@ -96,9 +81,10 @@ package
 					cull(root, id, false);
 					n.used = true;
 					s.apply(state, stats);
+					return true;
 				}
-				return false;
 			}
+			return false;
 		}
 	}
 }
