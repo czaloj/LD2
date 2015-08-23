@@ -2,6 +2,7 @@ package
 {
 	import org.flixel.*;
 	import game.EntityStats;
+	import graphics.SpriteSheet;
 	
 	/**
 	 * ...
@@ -15,8 +16,9 @@ package
 		
 		public function ShooterBullet(gameStateRefIn:GameState, X:Number=0, Y:Number=0, dmultIn:int=1) 
 		{
-			super(X, Y);
-			makeGraphic(15, 15, 0xffcc00ff);
+			super(X, Y, SpriteSheet.shooterBullet);
+			scale = new FlxPoint(2, 2);
+			//makeGraphic(15, 15, 0xffcc00ff);
 			velocity.x = -400;
 			gameStateRef = gameStateRefIn;
 			dmult = dmultIn;

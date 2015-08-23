@@ -2,6 +2,7 @@ package
 {
 	import org.flixel.*;
 	import game.EntityStats;
+	import graphics.SpriteSheet;
 	
 	/**
 	 * ...
@@ -15,8 +16,9 @@ package
 		
 		public function Bomb(gameStateRefIn:GameState, X:Number=0, Y:Number=0, dmultIn:int=1) 
 		{
-			super(X, Y);
-			makeGraphic(15, 15, 0xffff0000);
+			super(X, Y, SpriteSheet.bomberBomb);
+			//makeGraphic(15, 15, 0xffff0000);
+			scale = new FlxPoint(2, 2);
 			velocity.x = -350;
 			velocity.y = -400;
 			acceleration.y = 1000;
@@ -59,7 +61,8 @@ package
 			for(var i: int = 0; i < particles; i++)
 			{
 				var particle:FlxParticle = new FlxParticle();
-				particle.makeGraphic(pSize, pSize, 0xff660000);
+				//particle.makeGraphic(pSize, pSize, 0xff660000);
+				particle.loadGraphic(SpriteSheet.bombShatter);
 				particle.exists = false;
 				particle.x += (Math.random() * 16);
 				emitter.add(particle);
