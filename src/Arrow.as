@@ -5,7 +5,6 @@ package
 	
 	public class Arrow extends FlxSprite 
 	{
-		public var deathTimer:int = 90;
 		public var gameStateRef:GameState;
 		public var dmult:int = 1;
 		
@@ -22,11 +21,7 @@ package
 		override public function update():void {
 			angle = Math.atan2(velocity.y, velocity.x) * 180 / Math.PI;
 			
-			deathTimer--;
-			if (deathTimer < 0) {
-				kill();
-			}
-			if (x > 3230)
+			if (x > 3230 || y > 896)
 				kill();
 				
 			if (FlxG.overlap(this, gameStateRef.base) && gameStateRef.base.justHurt == 0) {
