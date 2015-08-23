@@ -99,7 +99,7 @@ package
 			switch (spawnType) {
 				case SPAWN_TYPE_MINER:
 					//evo 1
-					var img:FlxSprite = new FlxSprite(x+6, y-7, SpriteSheet.slimeMiner);
+					var img:FlxSprite = new FlxSprite(x+22, y + 11, SpriteSheet.slimeMiner);
 					img.scrollFactor.x = img.scrollFactor.y = 0;
 					img.scale = new FlxPoint(2, 2);
 					hbRef.gameStateRef.add(img);

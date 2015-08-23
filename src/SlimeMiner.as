@@ -27,11 +27,12 @@ package
 			oreText.color = 0xff33333333;
 			oreText.size = 16;
 			gameStateRef.add(oreText);
+			scale = new FlxPoint(2, 2);
 		}
 		
 		override public function update():void {
-			oreText.x = x;
-			oreText.y = y;
+			oreText.x = x-10;
+			oreText.y = y-10;
 			oreText.text = "" + ore;
 
 			if (ore < gameStateRef.oreMax) {
@@ -46,7 +47,7 @@ package
 						velocity.x -= 50+(Math.random() * 200);
 					}
 				} else {
-					if (y >= 902-64) {
+					if (y >= 896-32) {
 						acceleration.y = 0;
 						velocity.x /= 5;
 						inAir = false;
@@ -77,7 +78,7 @@ package
 					velocity.x -= 50+(Math.random() * 200);
 				}
 				} else {
-					if (y >= 902-64) {
+					if (y >= 896-32) {
 						acceleration.y = 0;
 						velocity.x /= 5;
 						inAir = false;
@@ -90,8 +91,8 @@ package
 				}
 			}
 			
-			if (y > 902-64)
-				y = 902-64;
+			if (y > 896-32)
+				y = 896-32;
 		}
 		
 		public function createDust():void
