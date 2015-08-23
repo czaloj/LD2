@@ -3,7 +3,7 @@ package game
 	public class EntityStats 
 	{
 		public static const AUGMENTOR:EntityStats = new EntityStats(15, 2, 1.0, 0.0);
-		public static const BARRIER:EntityStats = new EntityStats(100, 30, 1.0, 0.0);
+		public static const BARRIER:EntityStats = new EntityStats(400, 0, 1.0, 0.0);
 		public static const BOMBER:EntityStats = new EntityStats(40, 80, 1.0, 0.0);
 		public static const CLEAVER:EntityStats = new EntityStats(100, 18, 100.0, 0.0);
 		public static const DESTRUCTOR:EntityStats = new EntityStats(100, 30, 1.0, 0.0);
