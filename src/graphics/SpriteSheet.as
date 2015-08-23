@@ -15,6 +15,9 @@ package graphics
 		[Embed(source = "../images/BombShatter.png")]
 		public static var bombShatter:Class;
 		
+		[Embed(source = "../images/Arrow.png")]
+		public static var arrow:Class;
+		
 		/**
 		 * SLIMES
 		 */
@@ -63,8 +66,12 @@ package graphics
 		[Embed(source = "../images/hero_warrior_frozen.png")]
 		public static var heroMelee_frozen:Class;
 		
-		[Embed(source = "../images/miner.png")]
-		public static var heroRanger:Class;
+		[Embed(source = "../images/Archer1.png")]
+		public static var heroArcher:Class;
+		[Embed(source = "../images/Archer2.png")]
+		public static var heroArcher2:Class;
+		[Embed(source = "../images/Archer_frozen.png")]
+		public static var heroArcher_frozen:Class;
 		
 		[Embed(source = "../images/miner.png")]
 		public static var heroMage:Class;

@@ -32,6 +32,7 @@ package
 		public var base:Base;
 		
 		public var hero:HeroMelee;
+		public var archer:HeroRanger;
 		public var messageText:FlxText;
 		
 		override public function create():void {
@@ -75,7 +76,7 @@ package
 			//cam.color = 0xFFCCCC; // add a light red tint to the camera to differentiate it from the other
 			FlxG.addCamera(cam);
 			
-			base = new Base(2560, 768);
+			base = new Base(this, 2560, 768);
 			add(base);
 			
 			emitterGroup = new FlxGroup();
@@ -88,8 +89,10 @@ package
 			st = new SkillTree(this);
 			
 			//hero test
-			hero = new HeroMelee(this, 50, 807);
+			hero = new HeroMelee(this, 150, 807);
 			add(hero);
+			archer = new HeroRanger(this, 50, 807);
+			add(archer);
 			
 			buffGroup = new FlxGroup();
 			add(buffGroup);

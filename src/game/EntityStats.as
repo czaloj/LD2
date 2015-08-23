@@ -2,16 +2,16 @@ package game
 {
 	public class EntityStats 
 	{
-		public static const AUGMENTOR:EntityStats = new EntityStats(15, 2, 1.0, 0.0, 0.0, 50, 0, 0, 0);
-		public static const BARRIER:EntityStats = new EntityStats(400, 0, 1.0, 0.0, 0.0, 50, 0, 0, 0);
-		public static const BOMBER:EntityStats = new EntityStats(40, 80, 1.0, 0.0, 150.0, 50, 0, 0, 0);
-		public static const CLEAVER:EntityStats = new EntityStats(100, 18, 100.0, 0.0, 50.0, 50, 0, 0, 0);
-		public static const DESTRUCTOR:EntityStats = new EntityStats(100, 30, 125.0, 0.0, 0.0, 50, 0, 0, 0);
+		public static const AUGMENTOR:EntityStats = new EntityStats(15, 2, 1.0, 0.0, 0.0, 250, 0, 0, 0);
+		public static const BARRIER:EntityStats = new EntityStats(400, 0, 1.0, 0.0, 0.0, 100, 0, 0, 0);
+		public static const BOMBER:EntityStats = new EntityStats(40, 80, 1.0, 0.0, 150.0, 150, 0, 0, 0);
+		public static const CLEAVER:EntityStats = new EntityStats(100, 18, 100.0, 0.0, 50.0, 100, 0, 0, 0);
+		public static const DESTRUCTOR:EntityStats = new EntityStats(100, 30, 125.0, 0.0, 0.0, 500, 0, 0, 0);
 		public static const FIGHTER:EntityStats = new EntityStats(200, 45, 100.0, 0.0, 0.0, 150, 0, 0, 0);
-		public static const FREEZER:EntityStats = new EntityStats(100, 30, 130.0, 0.0, 150.0, 50, 0, 0, 0);
-		public static const HEALER:EntityStats = new EntityStats(100, 30, 175, 0.0, 0.0, 50, 0, 0, 0);
+		public static const FREEZER:EntityStats = new EntityStats(100, 30, 130.0, 0.0, 150.0, 500, 0, 0, 0);
+		public static const HEALER:EntityStats = new EntityStats(100, 30, 175, 0.0, 0.0, 250, 0, 0, 0);
 		public static const SHOOTER:EntityStats = new EntityStats(100, 15, 1.0, 0.0, 50.0, 50, 0, 0, 0);
-		public static const MINER:EntityStats = new EntityStats(100, 15, 1.0, 0.0, 0.0, 50, 0, 0, 0);
+		public static const MINER:EntityStats = new EntityStats(100, 15, 1.0, 0.0, 0.0, 350, 0, 0, 0);
 		
 		public function EntityStats(h:int, a:int, m:Number, c:Number, s:Number, cd:int, s1:int, s2:int, s3:int)
 		{
