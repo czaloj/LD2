@@ -1,15 +1,14 @@
 package  
 {
+	import graphics.SpriteSheet;
 	import org.flixel.*;
 	
 	/**
 	 * ...
 	 * @author Wisp X
 	 */
-	public class Slime extends FlxSprite 
+	public class SlimeMiner extends FlxSprite 
 	{
-		
-		
 		public var gameStateRef:GameState;
 		public var inAir:Boolean = false;
 		public var minePhase:int = 30;
@@ -17,9 +16,9 @@ package
 		
 		public var oreText:FlxText;
 		
-		public function Slime(gameStateRefIn:GameState, X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
+		public function SlimeMiner(gameStateRefIn:GameState, X:Number=0, Y:Number=0)
 		{
-			super(X, Y, gameStateRefIn.miner_Image);
+			super(X, Y, SpriteSheet.slimeMiner);
 			//makeGraphic(64, 64, 0x8000cc33);
 			gameStateRef = gameStateRefIn;
 			
