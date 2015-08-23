@@ -27,6 +27,7 @@ package
 		private var heroParty:HeroParty;
 		public var buffGroup:FlxGroup;
 		public var healGroup:FlxGroup;
+		public var arrowGroup:FlxGroup;
 		
 		public var oreMax:int = 25;
 		public var base:Base;
@@ -84,6 +85,9 @@ package
 			// Spawn the party
 			//heroParty = new HeroParty(this);
 			//heroParty.spawn();			
+			
+			arrowGroup = new FlxGroup();
+			add(arrowGroup);
 			
 			//add the skill tree window
 			st = new SkillTree(this);

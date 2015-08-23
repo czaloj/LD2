@@ -45,6 +45,15 @@ package
 				var hurtText2:HurtText = new HurtText("hero", damage, gameStateRef.hero.x + 16, gameStateRef.hero.y - 16);
 				gameStateRef.add(hurtText2);
 			}
+			
+			if (FlxG.overlap(this, gameStateRef.archer)) {
+				createDust();
+				kill();
+				var damage:int = Math.ceil(game.EntityStats.BOMBER.attack*1.5*dmult);
+				gameStateRef.archer.knockback(damage);
+				var hurtText2:HurtText = new HurtText("hero", damage, gameStateRef.archer.x + 16, gameStateRef.archer.y - 16);
+				gameStateRef.add(hurtText2);
+			}
 		}
 		
 		//explosion
