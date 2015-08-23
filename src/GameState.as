@@ -220,7 +220,7 @@ package
 			emitter.setXSpeed(-75, 75);
 			emitter.setYSpeed(-200, -225);
 			emitter.bounce = 0.5;
-			var particles: int = 4;
+			var particles: int = 1;
 			
 			var pSize:int = 5;
 			for(var i: int = 0; i < particles; i++)
