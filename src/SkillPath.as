@@ -58,10 +58,6 @@ package
 				upgrades.push(upgrade);
 			}
 		}
-				upgrades[1][i / 5].push(upgrade);
-				i++;
-			}
-		}
 		
 		function findNode(n:Node, id:int):Node
 		{
