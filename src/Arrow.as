@@ -3,10 +3,6 @@ package
 	import org.flixel.*;
 	import graphics.SpriteSheet;
 	
-	/**
-	 * ...
-	 * @author Wisp X
-	 */
 	public class Arrow extends FlxSprite 
 	{
 		public var deathTimer:int = 90;
@@ -18,10 +14,14 @@ package
 			super(X, Y, SpriteSheet.arrow);
 			scale = new FlxPoint(2, 2);
 			velocity.x = 800;
+			velocity.y = -400;
+			acceleration.y = 400;
 			gameStateRef = gameStateRefIn;
 		}
 		
 		override public function update():void {
+			angle = Math.atan2(velocity.y, velocity.x) * 180 / Math.PI;
+			
 			deathTimer--;
 			if (deathTimer < 0) {
 				kill();
