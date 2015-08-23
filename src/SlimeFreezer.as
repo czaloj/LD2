@@ -21,6 +21,7 @@ package
 		public var referenceStats:EntityStats;
 		public var shotCDfinal:int = 150;
 		public var shotCD:int;
+		private var dt:Number = 0.0;
 		
 		public function SlimeFreezer(gameStateRefIn:GameState, X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
@@ -41,27 +42,17 @@ package
 				gameStateRef.add(newBullet);
 			}
 			
-			var dest:int = gameStateRef.hero.x+300;
-			if (!inAir) {
-				velocity.y = -275; //+ (Math.random() * -800);
-				inAir = true;
-				acceleration.y = 1000;
-				if (dest > x) {
-					velocity.x += EntityStats.FREEZER.moveSpeed+(Math.random() * 100);
-				}
-				if (dest < x) {
-					velocity.x -= EntityStats.FREEZER.moveSpeed+(Math.random() * 100);
-				}
-			} else {
-				if (y >= 696-40) {
-					acceleration.y = 0;
-					velocity.x /= 5;
-					inAir = false;
-				}
-			}
+			dt += 1.0 / 30.0;
+			dt = dt % 4;
 			
-			if (y > 696-40)
-				y = 696-40;
+			
+			var dest:int = gameStateRef.hero.x+300;
+
+			acceleration.y = 0;
+			velocity.x = dest > x ? Math.min(EntityStats.FREEZER.moveSpeed, dest - x) : Math.max( -EntityStats.FREEZER.moveSpeed, dest - x);
+			acceleration.x = 0;
+			
+			y = Math.sin(dt * Math.PI / 2) * 50 + 696;
 		}		
 	}
 
