@@ -56,7 +56,7 @@ package
 				healthbar.makeGraphic(Math.ceil((hp / 100) * 40), 6, 0x85ff0000);
 			}
 			
-			var dest:int = gameStateRef.hero.x+20;
+			var dest:int = gameStateRef.hero.x+75;
 			if (!inAir) {
 				velocity.y = -150; //+ (Math.random() * -800);
 				inAir = true;
@@ -77,7 +77,7 @@ package
 			
 			shotCD--;
 			if (shotCD < 1) {
-				shotCD = shotCDfinal;
+				shotCD = stats.attackSpeed;
 				var newBullet:CleaverDamage = new CleaverDamage(gameStateRef, x-150, y, aBuff);
 				gameStateRef.add(newBullet);
 			}

@@ -54,7 +54,7 @@ package
 			}
 			shotCD--;
 			if (shotCD < 1) {
-				shotCD = shotCDfinal;
+				shotCD = stats.attackSpeed;
 				var newBullet:ShooterBullet = new ShooterBullet(gameStateRef, x+8, y+20, aBuff);
 				gameStateRef.add(newBullet);
 			}

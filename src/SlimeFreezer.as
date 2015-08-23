@@ -16,7 +16,7 @@ package
 		public var healthbar:FlxSprite;
 		
 		//public var hp:int = EntityStats.FREEZER.health;
-		//public var stats:EntityStats = EntityStats.FREEZER;
+		public var stats:EntityStats = EntityStats.FREEZER;
 		
 		public var referenceStats:EntityStats;
 		public var shotCDfinal:int = 150;
@@ -37,7 +37,7 @@ package
 		override public function update():void {
 			shotCD--;
 			if (shotCD < 1) {
-				shotCD = shotCDfinal;
+				shotCD = stats.attackSpeed;
 				var newBullet:FreezerBullet = new FreezerBullet(gameStateRef, x, y);
 				gameStateRef.add(newBullet);
 			}
