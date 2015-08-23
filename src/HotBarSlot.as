@@ -67,19 +67,35 @@ package
 					//use slime
 					switch(spawnType)
 					{
-						case SPAWN_TYPE_MINER:
-							if (hbRef.gameStateRef.jello >= 44) {
-								hbRef.gameStateRef.makeSlime("miner");
-								hbRef.gameStateRef.jello -= 44;
-								cd = 50;								
-							}
+						case SPAWN_TYPE_AUGMENTOR:
+							spawnIfJello("augmentor", 44, 50);
+							break;
+						case SPAWN_TYPE_BARRIER:
+							spawnIfJello("barrier", 44, 50);
+							break;
+						case SPAWN_TYPE_BOMBER:
+							spawnIfJello("bomber", 44, 50);
+							break;
+						case SPAWN_TYPE_CLEAVER:
+							spawnIfJello("cleaver", 44, 50);
+							break;
+						case SPAWN_TYPE_DESTRUCTOR:
+							spawnIfJello("destructor", 44, 50);
 							break;
 						case SPAWN_TYPE_FIGHTER:
-							if (hbRef.gameStateRef.jello >= 75) {
-								hbRef.gameStateRef.makeSlime("fighter");
-								hbRef.gameStateRef.jello -= 75;
-								cd = 150;								
-							}
+							spawnIfJello("fighter", 75, 150);
+							break;
+						case SPAWN_TYPE_FREEZER:
+							spawnIfJello("freezer", 44, 50);
+							break;
+						case SPAWN_TYPE_HEALER:
+							spawnIfJello("healer", 44, 50);
+							break;
+						case SPAWN_TYPE_MINER:
+							spawnIfJello("miner", 44, 50);
+							break;
+						case SPAWN_TYPE_SHOOTER:
+							spawnIfJello("shooter", 44, 50);
 							break;
 					}
 					
@@ -95,23 +111,53 @@ package
 				cd += amt;
 		}
 		
+		private function spawnIfJello(spawnName:String, jello:int, cooldown:int):void
+		{
+			if (hbRef.gameStateRef.jello >= jello) {
+				hbRef.gameStateRef.makeSlime(spawnName);
+				hbRef.gameStateRef.jello -= jello;
+				cd = cooldown;								
+			}
+		}
+		
 		public function addthing():void {
 			switch (spawnType) {
-				case SPAWN_TYPE_MINER:
-					//evo 1
-					var img:FlxSprite = new FlxSprite(x+22, y + 11, SpriteSheet.slimeMiner);
-					img.scrollFactor.x = img.scrollFactor.y = 0;
-					img.scale = new FlxPoint(2, 2);
-					hbRef.gameStateRef.add(img);
+				//evo 1		
+				case SPAWN_TYPE_AUGMENTOR:
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					break;
+				case SPAWN_TYPE_BARRIER:
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					break;
+				case SPAWN_TYPE_BOMBER:
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					break;
+				case SPAWN_TYPE_CLEAVER:
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					break;
+				case SPAWN_TYPE_DESTRUCTOR:
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
 					break;
 				case SPAWN_TYPE_FIGHTER:
-					//evo 1
 					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
-					img.scrollFactor.x = img.scrollFactor.y = 0;
-					img.scale = new FlxPoint(2, 2);
-					hbRef.gameStateRef.add(img);
+					break;
+				case SPAWN_TYPE_FREEZER:
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					break;
+				case SPAWN_TYPE_HEALER:
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					break;
+				case SPAWN_TYPE_SHOOTER:
+					img = new FlxSprite(x+22, y + 11, SpriteSheet.slimeFighter);
+					break;
+				case SPAWN_TYPE_MINER:
+					var img:FlxSprite = new FlxSprite(x+22, y + 11, SpriteSheet.slimeMiner);
 					break;
 			}
+			img.scrollFactor.x = img.scrollFactor.y = 0;
+			img.scale = new FlxPoint(2, 2);
+			hbRef.gameStateRef.add(img);
+
 		}
 	}
 }

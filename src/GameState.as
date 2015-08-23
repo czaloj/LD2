@@ -122,15 +122,48 @@ package
 		}
 		
 		public function makeSlime(slime:String):void {
-			if (slime == "miner") {
-				var newSlime:SlimeMiner = new SlimeMiner(this, 2600, 808);
-				slimeGroup.add(newSlime);
-				add(slimeGroup);
-			}
-			if (slime == "fighter") {
-				var newSlime2:SlimeFighter = new SlimeFighter(this, 2600, 808);
-				slimeGroup.add(newSlime2);
-				add(slimeGroup);
+			switch(slime)
+			{
+				case "augmentor":
+					slimeGroup.add(new SlimeAugmentor(this, 2600, 808));
+					add(slimeGroup);
+					break;					
+				case "barrier":
+					slimeGroup.add(new SlimeBarrier(this, 2600, 808));
+					add(slimeGroup);
+					break;
+				case "bomber":
+					slimeGroup.add(new SlimeBomber(this, 2600, 808));
+					add(slimeGroup);
+					break;
+				case "cleaver":
+					slimeGroup.add(new SlimeCleaver(this, 2600, 808));
+					add(slimeGroup);
+					break;
+				case "destructor":
+					slimeGroup.add(new SlimeDestructor(this, 2600, 808));
+					add(slimeGroup);
+					break;
+				case "freezer":
+					slimeGroup.add(new SlimeFreezer(this, 2600, 808));
+					add(slimeGroup);
+					break;
+				case "healer":
+					slimeGroup.add(new SlimeHealer(this, 2600, 808));
+					add(slimeGroup);
+					break;
+				case "shooter":
+					slimeGroup.add(new SlimeShooter(this, 2600, 808));
+					add(slimeGroup);
+					break;
+				case "miner":
+					slimeGroup.add(new SlimeMiner(this, 2600, 808));
+					add(slimeGroup);
+					break;
+				case "fighter":
+					slimeGroup.add(new SlimeFighter(this, 2600, 808));
+					add(slimeGroup);
+					break;
 			}
 		}
 		
