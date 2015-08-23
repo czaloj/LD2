@@ -1,38 +1,29 @@
 package  
 {
+	import game.EntityStats;
 	import graphics.SpriteSheet;
 	import org.flixel.*;
 	
-	/**
-	 * ...
-	 * @author Wisp X
-	 */
-	public class SlimeMiner extends FlxSprite 
+	public class SlimeMiner extends Slime
 	{
-		public var gameStateRef:GameState;
-		public var inAir:Boolean = false;
 		public var minePhase:int = 30;
 		public var ore:int = 0;
-		
 		public var oreText:FlxText;
 		
 		public function SlimeMiner(gameStateRefIn:GameState, X:Number=0, Y:Number=0)
 		{
-			super(X, Y, SpriteSheet.slimeMiner);
-			//makeGraphic(64, 64, 0x8000cc33);
-			gameStateRef = gameStateRefIn;
+			super(gameStateRefIn, EntityStats.MINER, X, Y, SpriteSheet.slimeMiner);
 			
 			oreText = new FlxText(0, 0, 64, "");
 			oreText.alignment = "center";
 			oreText.color = 0xff33333333;
 			oreText.size = 16;
 			gameStateRef.add(oreText);
-			scale = new FlxPoint(2, 2);
 		}
 		
 		override public function update():void {
-			oreText.x = x-16;
-			oreText.y = y-16;
+			oreText.x = x - 16;
+			oreText.y = y - 16;
 			oreText.text = "" + ore;
 
 			if (ore < gameStateRef.oreMax) {
@@ -90,9 +81,8 @@ package
 					oreText.color = 0xff33333333;
 				}
 			}
-			
-			if (y > 896-40)
-				y = 896-40;
+
+			collideGround();
 		}
 		
 		public function createDust():void
