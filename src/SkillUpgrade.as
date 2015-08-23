@@ -8,9 +8,23 @@ package
 		public static const TARGET_MOVESPEED:int = 1 << 2;
 		public static const TARGET_COOLDOWN:int = 1 << 3;
 		public static const TARGET_ATTACK_SPEED:int = 1 << 4;
+		
 		public static const TARGET_SPECIAL_1:int = 1 << 5;
+		public static const TARGET_BARRIER_DAMAGE_RETURN:int = TARGET_SPECIAL_1;
+		public static const TARGET_HEAL_AMOUNT:int = TARGET_SPECIAL_1;
+		public static const TARGET_BUFF_HEALTH:int = TARGET_SPECIAL_1;
+		public static const TARGET_SLOW_AMOUNT:int = TARGET_SPECIAL_1;
+		public static const TARGET_MINING_AMOUNT:int = TARGET_SPECIAL_1;
+		
 		public static const TARGET_SPECIAL_2:int = 1 << 6;
+		public static const TARGET_BARRIER_KNOCKBACK:int = TARGET_SPECIAL_2;
+		public static const TARGET_HEAL_SPEED:int = TARGET_SPECIAL_2;
+		public static const TARGET_BUFF_DAMAGE:int = TARGET_SPECIAL_2;
+		public static const TARGET_SLOW_LENGTH:int = TARGET_SPECIAL_2;
+		public static const TARGET_ORE_CAPACITY:int = TARGET_SPECIAL_2;
+		
 		public static const TARGET_SPECIAL_3:int = 1 << 7;
+		public static const TARGET_BUFF_ATTACK_SPEED:int = TARGET_SPECIAL_3;
 		
 		
 		public var target:int = 0;
