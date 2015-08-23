@@ -10,6 +10,9 @@ package
 		[Embed(source = "images/map.png")]
 		public var mapbg_Image:Class;
 		
+		[Embed(source = "images/miner.png")]
+		public var miner_Image:Class;
+		
 		public var state:State = null;
 		
 		//resource
@@ -23,8 +26,9 @@ package
 		public var cloudGroup:FlxGroup;
 		public var slimeOreGroup:FlxGroup;
 		public var slimeGroup:FlxGroup;
+		public var emitterGroup:FlxGroup;
 		
-		public var oreMax:int = 100;
+		public var oreMax:int = 25;
 		public var base:Base;
 		
 		override public function create():void {
@@ -43,8 +47,8 @@ package
 			
 			slimeGroup = new FlxGroup();
 			slimeOreGroup = new FlxGroup();
+			slimeOreGroup.add(new SlimeOre(this, 3000, 809));
 			add(slimeOreGroup);
-			slimeOreGroup.add(new SlimeOre(2900, 809));
 			
 			//hot bar stuff
 			hb = new HotBar(this);
@@ -70,8 +74,10 @@ package
 			//cam.color = 0xFFCCCC; // add a light red tint to the camera to differentiate it from the other
 			FlxG.addCamera(cam);
 			
-			base = new Base(2100, 768);
+			base = new Base(2560, 768);
 			add(base);
+			
+			emitterGroup = new FlxGroup();
 		}
 		
 		override public function update():void {
@@ -119,7 +125,7 @@ package
 		}
 		
 		public function makeSlime():void {
-			var newSlime:Slime = new Slime(this, (player.x+600)+(-200+(Math.random()*400)), 500);
+			var newSlime:Slime = new Slime(this, 2600, 808);
 			slimeGroup.add(newSlime);
 			add(slimeGroup);
 		}

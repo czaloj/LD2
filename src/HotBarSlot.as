@@ -34,6 +34,7 @@ package
 		
 		override public function update():void {
 			if (!textadded) {
+				addthing();
 				hbRef.gameStateRef.add(cdtext);
 				textadded = true;
 			}
@@ -47,14 +48,19 @@ package
 				loadGraphic(hb_slot_Image);
 				cdtext.visible = false;
 			}
-			if (FlxG.mouse.justPressed() && cd == 0 && hbRef.gameStateRef.jello >= 44 && !hbRef.gameStateRef.st.skillTreeOpened) {
+			if (FlxG.mouse.justPressed() && cd == 0 && !hbRef.gameStateRef.st.skillTreeOpened) {
 				//if the player click on this hot bar slot to use the slime
 				if ((FlxG.mouse.x >= x && FlxG.mouse.x <= x + 75) && (FlxG.mouse.y >= y && FlxG.mouse.y <= y + 75)) {
 					//use slime
-					hbRef.gameStateRef.makeSlime();
+					if (skill == 10 && hbRef.gameStateRef.jello >= 44 ) {
+						hbRef.gameStateRef.makeSlime();
+						hbRef.gameStateRef.jello -= 44;
+						cd = 50;
+					}
+					
 					//hbRef.cooldownothers(skill);
-					cd = 150;
-					hbRef.gameStateRef.jello -= 44;
+					
+					
 				}
 			}
 			//collision y 896
@@ -63,6 +69,15 @@ package
 		public function addcd(amt:int):void {
 			if (cd == 0)
 				cd += amt;
+		}
+		
+		public function addthing():void {
+			if (skill == 10) {
+				//evo 1
+				var img:FlxSprite = new FlxSprite(x+6, y-7, hbRef.gameStateRef.miner_Image);
+				img.scrollFactor.x = img.scrollFactor.y = 0;
+				hbRef.gameStateRef.add(img);
+			}
 		}
 		
 	}

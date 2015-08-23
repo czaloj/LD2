@@ -8,6 +8,8 @@ package
 	 */
 	public class Slime extends FlxSprite 
 	{
+		
+		
 		public var gameStateRef:GameState;
 		public var inAir:Boolean = false;
 		public var minePhase:int = 30;
@@ -17,34 +19,35 @@ package
 		
 		public function Slime(gameStateRefIn:GameState, X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
-			super(X, Y, SimpleGraphic);
-			makeGraphic(64, 64, 0x8000cc33);
+			super(X, Y, gameStateRefIn.miner_Image);
+			//makeGraphic(64, 64, 0x8000cc33);
 			gameStateRef = gameStateRefIn;
 			
-			oreText = new FlxText(0, 0, 500, "");
+			oreText = new FlxText(0, 0, 64, "");
+			oreText.alignment = "center";
 			oreText.color = 0xff33333333;
 			oreText.size = 16;
 			gameStateRef.add(oreText);
 		}
 		
 		override public function update():void {
-			oreText.x = x + 15;
-			oreText.y = y - 20;
+			oreText.x = x;
+			oreText.y = y;
 			oreText.text = "" + ore;
 
 			if (ore < gameStateRef.oreMax) {
 				if (!inAir) {
-					velocity.y = -250; //+ (Math.random() * -800);
+					velocity.y = -150; //+ (Math.random() * -800);
 					inAir = true;
-					acceleration.y = 1750;
-					if (2900+48 > x) {
-						velocity.x += 50+(Math.random() * 400);
+					acceleration.y = 1000;
+					if (3000+48 > x) {
+						velocity.x += 50+(Math.random() * 200);
 					}
-					if (2900+48 < x) {
-						velocity.x -= 50+(Math.random() * 400);
+					if (3000+48 < x) {
+						velocity.x -= 50+(Math.random() * 200);
 					}
 				} else {
-					if (y >= 896-64) {
+					if (y >= 902-64) {
 						acceleration.y = 0;
 						velocity.x /= 5;
 						inAir = false;
@@ -54,7 +57,8 @@ package
 					minePhase--;
 					if (minePhase <= 0 ) {
 						//mine an ore
-						ore += 2+Math.ceil(Math.random()*5);
+						ore += 3;
+						createDust();
 						minePhase = 30;
 						if (ore >= gameStateRef.oreMax) {
 							ore = gameStateRef.oreMax;
@@ -64,17 +68,17 @@ package
 				}
 			} else {
 				if (!inAir) {
-				velocity.y = -250; //+ (Math.random() * -800);
+				velocity.y = -150; //+ (Math.random() * -800);
 				inAir = true;
-				acceleration.y = 1750;
-				if (2100+64 > x) {
-					velocity.x += 50+(Math.random() * 400);
+				acceleration.y = 1000;
+				if (2560+64 > x) {
+					velocity.x += 50+(Math.random() * 200);
 				}
-				if (2100+64 < x) {
-					velocity.x -= 50+(Math.random() * 400);
+				if (2560+64 < x) {
+					velocity.x -= 50+(Math.random() * 200);
 				}
 				} else {
-					if (y >= 896-64) {
+					if (y >= 902-64) {
 						acceleration.y = 0;
 						velocity.x /= 5;
 						inAir = false;
@@ -87,8 +91,33 @@ package
 				}
 			}
 			
-			if (y > 896-64)
-				y = 896-64;
+			if (y > 902-64)
+				y = 902-64;
+		}
+		
+		public function createDust():void
+		{
+			var emitter:FlxEmitter = new FlxEmitter();
+			emitter.gravity = 800;
+			emitter.setXSpeed(-200, 200);
+			emitter.setYSpeed(-125, -175);
+			emitter.bounce = 0.5;
+			var particles: int = 4;
+			
+			var pSize:int = 10;
+			for(var i: int = 0; i < particles; i++)
+			{
+				var particle:FlxParticle = new FlxParticle();
+				particle.makeGraphic(pSize, pSize, 0x80888888);
+				particle.exists = false;
+				particle.x += (Math.random() * 16);
+				emitter.add(particle);
+			}
+			emitter.start(true, 0.5);
+			gameStateRef.emitterGroup.add(emitter);
+			emitter.at(this);
+			emitter.y += 16;
+			gameStateRef.add(gameStateRef.emitterGroup);
 		}
 		
 	}
