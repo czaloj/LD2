@@ -42,7 +42,8 @@ package
 			if (shotCD < 1) {
 				shotCD = 40;
 				var newBullet:Arrow = new Arrow(state, x+8, y+20);
-				state.add(newBullet);
+				state.arrowGroup.add(newBullet);
+				state.add(state.arrowGroup);
 			}
 			
 			if (hp < 1) {

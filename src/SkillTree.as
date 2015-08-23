@@ -59,6 +59,7 @@ package
 		{
 			skillPaths = new Array();
 			skillPaths.length = 10;
+			
 			skillPaths[SlimeID.AUGMENTOR] = new SkillPath(EntityStats.AUGMENTOR);
 			// TODO Add Stats
 			
@@ -75,37 +76,7 @@ package
 			// TODO Add Stats
 			
 			skillPaths[SlimeID.FIGHTER] = new SkillPath(EntityStats.FIGHTER);
-			skillPaths[SlimeID.FIGHTER].setTier1Upgrades(
-				new SkillUpgrade(100, SkillUpgrade.TARGET_ATTACK, 10), // TODO Change these probably
-				new SkillUpgrade(100, SkillUpgrade.TARGET_HEALTH, 10),
-				new SkillUpgrade(100, SkillUpgrade.TARGET_MOVESPEED, 10, SkillUpgrade.TARGET_HEALTH, 5),
-				new SkillUpgrade(200, SkillUpgrade.TARGET_ATTACK, 10),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK, 30, SkillUpgrade.TARGET_HEALTH, 5)
-			);
-			skillPaths[SlimeID.FIGHTER].setTier2Upgrades(
-				//15 upgrades
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 10), // TODO Change these probably
-				new SkillUpgrade(50, SkillUpgrade.TARGET_HEALTH, 10),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_MOVESPEED, 10, SkillUpgrade.TARGET_HEALTH, 5),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 10),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 30, SkillUpgrade.TARGET_HEALTH, 5),
-				
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 10), // TODO Change these probably
-				new SkillUpgrade(50, SkillUpgrade.TARGET_HEALTH, 10),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_MOVESPEED, 10, SkillUpgrade.TARGET_HEALTH, 5),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 10),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 30, SkillUpgrade.TARGET_HEALTH, 5),
-				
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 10), // TODO Change these probably
-				new SkillUpgrade(50, SkillUpgrade.TARGET_HEALTH, 10),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_MOVESPEED, 10, SkillUpgrade.TARGET_HEALTH, 5),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 10),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 30, SkillUpgrade.TARGET_HEALTH, 5)
-			);
-			skillPaths[SlimeID.FIGHTER].setTier3Upgrades(
-				// 45 upgrades
-
-			);
+			// TODO Add Stats
 			
 			skillPaths[SlimeID.FREEZER] = new SkillPath(EntityStats.FREEZER);
 			// TODO Add Stats

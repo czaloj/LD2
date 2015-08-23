@@ -1,89 +1,108 @@
 package 
 {
 	import game.EntityStats;
-	public class SkillPath 
+
+	class Node
 	{
-		private const upgrades:Array = new Array(
-			new Array(
-				new Array()
-			),
-			new Array(
-				new Array(),
-				new Array(),
-				new Array()
-			),
-			new Array(
-				new Array(),
-				new Array(),
-				new Array(),
-				new Array(),
-				new Array(),
-				new Array(),
-				new Array(),
-				new Array(),
-				new Array()
-			)
-		);
+		public var next:Array;
+		public var id:int;
+		public var available:Boolean = true;
+		public var used:Boolean = false;
+		
+		public function Node(id:int, ...nodes)
+		{
+			this.id = id;
+			next = new Array();
+			for each (var n:Node in nodes) next.push(n);
+		}
+	}
+	
+	public class SkillPath
+	{
+		
+		private const upgrades:Array = new Array(new SkillUpgrade(0));
 		
 		private var path:int = 0;
 		private var level:int = 0;
 		private var tier:int = 0;
 		private var stats:EntityStats;
 		
+		public var root:Node = new Node(0, 
+			0,
+			new Node(1, 
+				new Node(4),
+				new Node(5),
+				new Node(6)
+			),
+			new Node(2, 
+				new Node(7),
+				new Node(8),
+				new Node(9)
+			),
+			new Node(3, 
+				new Node(10),
+				new Node(11),
+				new Node(12)
+			)
+		);
+		
 		public function SkillPath(es:EntityStats) 
 		{
 			stats = es;
 		}
 		
-		private function setTier1Upgrades(...upgrades):void
+		private function setUpgrades(...upgrades):void
 		{
 			for each (var u:SkillUpgrade in upgrades)
 			{
-				upgrades[0][0].push(upgrade);
+				upgrades.push(upgrade);
 			}
 		}
-		private function setTier2Upgrades(...upgrades):void
-		{
-			var i:int = 0;
-			for each (var u:SkillUpgrade in upgrades)
-			{
 				upgrades[1][i / 5].push(upgrade);
 				i++;
 			}
 		}
-		private function setTier3Upgrades(...upgrades):void
+		
+		function findNode(n:Node, id:int):Node
 		{
-			var i:int = 0;
-			for each (var u:SkillUpgrade in upgrades)
+			for each (var no:Node in n.next)
 			{
-				upgrades[2][i / 5].push(upgrade);
-				i++;
+				if (no.available)
+				{
+					if (no.id == id) return no;
+					var nf:Node = findNode(n);
+					if (nf != null) return nf;
+				}
 			}
+			return null;
+		}
+		function cull(n:Node, id:int, inTree:Boolean):Boolean
+		{
+			var isFound = n.id == id || inTree;
+			n.available = isFound;
+			for each(var no:Node in n.next)
+			{
+				n.available |= cull(no, id, isFound);
+			}
+			return n.available;
 		}
 		
-		private function upgrade(state:GameState):Boolean
+		function upgrade(state:GameState, id:int):Boolean
 		{
-			// Apply the upgrade
-			var s:SkillUpgrade = upgrades[tier][path][level];
-			s.apply(state, stats);
-
-			// Increase the level
-			level++;
-			if (level == 5)
+			var n:Node = findNode(root, id);
+			if (n != null && !n.used)
 			{
-				// A new evolution must be determined
-				tier++;
-				level = 0;
-				path *= 3;
-				return true;
+				var s:SkillUpgrade = upgrades[id];
+				if (state.jello >= s.cost)
+				{
+					// Apply the upgrade
+					state.jello -= s.cost;
+					cull(root, id, false);
+					n.used = true;
+					s.apply(state, stats);
+				}
+				return false;
 			}
-			return false;
-		}
-		
-		private function setPath(p:int):void
-		{
-			path = p;
 		}
 	}
-
 }
