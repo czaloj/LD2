@@ -22,7 +22,7 @@ package game
 		public const halfRect:Rectangle = new Rectangle();
 		
 		// Simple stats
-		public const stats:EntityStats = new EntityStats();
+		public const stats:EntityStats = new EntityStats(0, 0, 0, 0);
 		
 		public function Entity(team:int, ai:AIController, skills:Array) 
 		{
@@ -57,7 +57,7 @@ package game
 			}
 			else
 			{
-				center.x += ai.chooseMovement(state) * stats.moveSpeed;
+				//center.x += ai.chooseMovement(state) * stats.moveSpeed;
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 package  
 {
+	import game.EntityStats;
 	import graphics.SpriteSheet;
 	import org.flixel.*;
 	
@@ -13,6 +14,11 @@ package
 		public var inAir:Boolean = false;
 		
 		public var healthbar:FlxSprite;
+		
+		public var hp:int = EntityStats.FIGHTER.health;
+		public var stats:EntityStats = EntityStats.FIGHTER;
+		
+		public var referenceStats:EntityStats;
 		
 		public function SlimeFighter(gameStateRefIn:GameState, X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{

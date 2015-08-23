@@ -24,6 +24,7 @@ package
 		public var slimeOreGroup:FlxGroup;
 		public var slimeGroup:FlxGroup;
 		public var emitterGroup:FlxGroup;
+		private var heroParty:HeroParty;
 		
 		public var oreMax:int = 25;
 		public var base:Base;
@@ -75,6 +76,10 @@ package
 			add(base);
 			
 			emitterGroup = new FlxGroup();
+			
+			// Spawn the party
+			heroParty = new HeroParty(this);
+			heroParty.spawn();
 		}
 		
 		override public function update():void {

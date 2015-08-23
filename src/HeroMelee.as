@@ -11,11 +11,15 @@ package
 		{
 			super(X, Y, SpriteSheet.heroMelee);
 			this.state = state;
+			
+			
 		}
 		
 		override public function update():void 
 		{
 			super.update();
+			
+			
 		}
 	}
 
