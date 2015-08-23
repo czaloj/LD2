@@ -5,6 +5,9 @@ package graphics
 		[Embed(source = "../images/miner.png")]
 		public static var slimeMiner:Class;
 		
+		[Embed(source = "../images/Fighter.png")]
+		public static var slimeFighter:Class;
+		
 		[Embed(source = "../images/miner.png")]
 		public static var heroMelee:Class;
 		

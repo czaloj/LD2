@@ -10,12 +10,6 @@ package
 		[Embed(source = "images/map.png")]
 		public var mapbg_Image:Class;
 		
-		[Embed(source = "images/miner.png")]
-		public var miner_Image:Class;
-		
-		[Embed(source = "images/Fighter.png")]
-		public var fighter_Image:Class;
-		
 		public var state:State = null;
 		
 		//resource
@@ -129,7 +123,7 @@ package
 		
 		public function makeSlime(slime:String):void {
 			if (slime == "miner") {
-				var newSlime:Slime = new Slime(this, 2600, 808);
+				var newSlime:SlimeMiner = new SlimeMiner(this, 2600, 808);
 				slimeGroup.add(newSlime);
 				add(slimeGroup);
 			}
@@ -138,11 +132,6 @@ package
 				slimeGroup.add(newSlime2);
 				add(slimeGroup);
 			}
-			
-		public function makeSlime():void {
-			var newSlime:SlimeMiner = new SlimeMiner(this, 2600, 808);
-			slimeGroup.add(newSlime);
-			add(slimeGroup);
 		}
 		
 		public function makeClouds():void {

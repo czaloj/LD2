@@ -1,5 +1,6 @@
 package  
 {
+	import graphics.SpriteSheet;
 	import org.flixel.*;
 	
 	/**
@@ -13,7 +14,7 @@ package
 		
 		public function SlimeFighter(gameStateRefIn:GameState, X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
-			super(X, Y, gameStateRefIn.fighter_Image);
+			super(X, Y, SpriteSheet.slimeFighter);
 			//makeGraphic(64, 64, 0x8000cc33);
 			gameStateRef = gameStateRefIn;
 			scale = new FlxPoint(2, 2);
