@@ -10,14 +10,14 @@ package
 	public class HotBarSlot extends FlxSprite 
 	{
 		private static const SPAWN_TYPE_FIGHTER:int = 1;
-		private static const SPAWN_TYPE_2:int = 2;
-		private static const SPAWN_TYPE_3:int = 3;
-		private static const SPAWN_TYPE_4:int = 4;
-		private static const SPAWN_TYPE_5:int = 5;
-		private static const SPAWN_TYPE_6:int = 6;
-		private static const SPAWN_TYPE_7:int = 7;
-		private static const SPAWN_TYPE_8:int = 8;
-		private static const SPAWN_TYPE_9:int = 9;
+		private static const SPAWN_TYPE_SHOOTER:int = 2;
+		private static const SPAWN_TYPE_CLEAVER:int = 3;
+		private static const SPAWN_TYPE_BOMBER:int = 4;
+		private static const SPAWN_TYPE_BARRIER:int = 5;
+		private static const SPAWN_TYPE_DESTRUCTOR:int = 6;
+		private static const SPAWN_TYPE_HEALER:int = 7;
+		private static const SPAWN_TYPE_AUGMENTOR:int = 8;
+		private static const SPAWN_TYPE_FREEZER:int = 9;
 		private static const SPAWN_TYPE_MINER:int = 10;
 		
 		
