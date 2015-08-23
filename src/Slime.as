@@ -94,6 +94,24 @@ package
 					gameStateRef.hero.knockback(damage);
 				}
 			}
+			if (FlxG.overlap(this, gameStateRef.archer) && justHurt == 0) {
+				velocity.x += 300;
+				velocity.y -= 150;
+				
+				var herodamage:int = Math.ceil(25 + Math.random() * 10);
+				var hurtText1:HurtText = new HurtText("slime", herodamage, x + 16, y - 16);
+				gameStateRef.add(hurtText1);
+				hp -= herodamage;
+				justHurt = 10;
+			
+				if (damageHero)
+				{
+					var damage:int = stats.attack*aBuff;
+					var hurtText2:HurtText = new HurtText("hero", damage, gameStateRef.hero.x + 16, gameStateRef.hero.y - 16);
+					gameStateRef.add(hurtText2);
+					gameStateRef.hero.knockback(damage);
+				}
+			}
 		}
 		
 		protected function checkHealth():void

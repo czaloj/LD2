@@ -12,8 +12,8 @@ package
 		{
 			super(X, Y, SpriteSheet.arrow);
 			scale = new FlxPoint(2, 2);
-			velocity.x = 800;
-			velocity.y = -400;
+			velocity.x = 400 + (Math.random()*300);
+			velocity.y = -200 - (Math.random()*175);
 			acceleration.y = 400;
 			gameStateRef = gameStateRefIn;
 		}
