@@ -88,13 +88,13 @@ package
 				new SkillUpgrade(50, SkillUpgrade.TARGET_HEALTH, 10),
 				new SkillUpgrade(50, SkillUpgrade.TARGET_MOVESPEED, 10, SkillUpgrade.TARGET_HEALTH, 5),
 				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 10),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 30, SkillUpgrade.TARGET_HEALTH, 5)
+				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 30, SkillUpgrade.TARGET_HEALTH, 5),
 				
 				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 10), // TODO Change these probably
 				new SkillUpgrade(50, SkillUpgrade.TARGET_HEALTH, 10),
 				new SkillUpgrade(50, SkillUpgrade.TARGET_MOVESPEED, 10, SkillUpgrade.TARGET_HEALTH, 5),
 				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 10),
-				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 30, SkillUpgrade.TARGET_HEALTH, 5)
+				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 30, SkillUpgrade.TARGET_HEALTH, 5),
 				
 				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 10), // TODO Change these probably
 				new SkillUpgrade(50, SkillUpgrade.TARGET_HEALTH, 10),
