@@ -104,7 +104,7 @@ package
 			}
 			
 			if (FlxG.overlap(this, gameStateRef.buffGroup)) {
-				stats.attack = 30;
+				tBuff = 30;
 				aBuff = 2;
 			}
 			

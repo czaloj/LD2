@@ -61,26 +61,26 @@ package
 				loadGraphic(hb_slot_Image);
 				cdtext.visible = false;
 			}
-			if (FlxG.mouse.justPressed() && cd == 0 && !hbRef.gameStateRef.st.skillTreeOpened) {
+			if (FlxG.mouse.justPressed() && cd == 0) { //&& !hbRef.gameStateRef.st.skillTreeOpened
 				//if the player click on this hot bar slot to use the slime
 				if ((FlxG.mouse.x >= x && FlxG.mouse.x <= x + 75) && (FlxG.mouse.y >= y && FlxG.mouse.y <= y + 75)) {
 					//use slime
 					switch(spawnType)
 					{
 						case SPAWN_TYPE_AUGMENTOR:
-							spawnIfJello("augmentor", 44, 50);
+							spawnIfJello("augmentor", 250, 50);
 							break;
 						case SPAWN_TYPE_BARRIER:
-							spawnIfJello("barrier", 44, 50);
+							spawnIfJello("barrier", 125, 50);
 							break;
 						case SPAWN_TYPE_BOMBER:
-							spawnIfJello("bomber", 44, 50);
+							spawnIfJello("bomber", 225, 50);
 							break;
 						case SPAWN_TYPE_CLEAVER:
-							spawnIfJello("cleaver", 44, 50);
+							spawnIfJello("cleaver", 90, 50);
 							break;
 						case SPAWN_TYPE_DESTRUCTOR:
-							spawnIfJello("destructor", 44, 50);
+							spawnIfJello("destructor", 300, 50);
 							break;
 						case SPAWN_TYPE_FIGHTER:
 							spawnIfJello("fighter", 75, 150);
@@ -89,13 +89,13 @@ package
 							spawnIfJello("freezer", 500, 50);
 							break;
 						case SPAWN_TYPE_HEALER:
-							spawnIfJello("healer", 44, 50);
+							spawnIfJello("healer", 150, 50);
 							break;
 						case SPAWN_TYPE_MINER:
-							spawnIfJello("miner", 44, 50);
+							spawnIfJello("miner", 40, 50);
 							break;
 						case SPAWN_TYPE_SHOOTER:
-							spawnIfJello("shooter", 44, 50);
+							spawnIfJello("shooter", 80, 50);
 							break;
 					}
 					
