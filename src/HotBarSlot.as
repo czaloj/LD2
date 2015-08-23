@@ -1,5 +1,6 @@
 package  
 {
+	import graphics.SpriteSheet;
 	import org.flixel.*;
 	
 	/**
@@ -8,13 +9,25 @@ package
 	 */
 	public class HotBarSlot extends FlxSprite 
 	{
+		private static const SPAWN_TYPE_FIGHTER:int = 1;
+		private static const SPAWN_TYPE_2:int = 2;
+		private static const SPAWN_TYPE_3:int = 3;
+		private static const SPAWN_TYPE_4:int = 4;
+		private static const SPAWN_TYPE_5:int = 5;
+		private static const SPAWN_TYPE_6:int = 6;
+		private static const SPAWN_TYPE_7:int = 7;
+		private static const SPAWN_TYPE_8:int = 8;
+		private static const SPAWN_TYPE_9:int = 9;
+		private static const SPAWN_TYPE_MINER:int = 10;
+		
+		
 		[Embed(source = "images/hb_slot.png")]
 		public var hb_slot_Image:Class;
 		[Embed(source = "images/hb_slot_cd.png")]
 		public var hb_slotcd_Image:Class;
 		
 		public var hbRef:HotBar;
-		public var skill:int;
+		public var spawnType:int;
 		public var cd:int = 0;
 		
 		public var cdtext:FlxText;
@@ -24,7 +37,7 @@ package
 		{
 			super(X, 620, hb_slot_Image);
 			hbRef = hbRefIn;
-			skill = skillIn;
+			spawnType = skillIn;
 			cdtext = new FlxText(x + 30, y + 24, 500, "");
 			cdtext.visible = false;
 			cdtext.size = 18;
@@ -56,6 +69,14 @@ package
 						hbRef.gameStateRef.makeSlime("miner");
 						hbRef.gameStateRef.jello -= 44;
 						cd = 50;
+					switch(spawnType)
+					{
+						case SPAWN_TYPE_MINER:
+							if (hbRef.gameStateRef.jello >= 44) {
+								hbRef.gameStateRef.makeSlime();
+								hbRef.gameStateRef.jello -= 44;
+								cd = 50;								
+							}
 					}
 					if (skill == 1 && hbRef.gameStateRef.jello >= 75 ) {
 						hbRef.gameStateRef.makeSlime("fighter");
@@ -63,9 +84,8 @@ package
 						cd = 150;
 					}
 					
+					// Uncomment to add others to cooldown
 					//hbRef.cooldownothers(skill);
-					
-					
 				}
 			}
 			//collision y 896
@@ -87,12 +107,14 @@ package
 			if (skill == 1) {
 				//evo 1
 				img = new FlxSprite(x+22, y + 11, hbRef.gameStateRef.fighter_Image);
+			switch (spawnType) {
+			case SPAWN_TYPE_MINER:
+				//evo 1
+				var img:FlxSprite = new FlxSprite(x+6, y-7, SpriteSheet.slimeMiner);
 				img.scrollFactor.x = img.scrollFactor.y = 0;
 				img.scale = new FlxPoint(2, 2);
 				hbRef.gameStateRef.add(img);
 			}
 		}
-		
 	}
-
 }

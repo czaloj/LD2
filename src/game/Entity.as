@@ -24,15 +24,15 @@ package game
 		// Simple stats
 		public const stats:EntityStats = new EntityStats();
 		
-		public function Entity(team:int, ai:AIController, ...skills) 
+		public function Entity(team:int, ai:AIController, skills:Array) 
 		{
 			this.team = team;
 			this.ai = ai;
-			this.skills.push(skills);
-			
-			// Set the entity reference
 			ai.entity = this;
-			for each (var skill:Skill in skills) skill.entity = this;
+			for each (var skill:Skill in skills) {
+				skill.entity = this;
+				this.skills.push(skill);
+			}
 		}
 		
 		// The decision step

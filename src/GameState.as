@@ -139,6 +139,10 @@ package
 				add(slimeGroup);
 			}
 			
+		public function makeSlime():void {
+			var newSlime:SlimeMiner = new SlimeMiner(this, 2600, 808);
+			slimeGroup.add(newSlime);
+			add(slimeGroup);
 		}
 		
 		public function makeClouds():void {
