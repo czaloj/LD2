@@ -152,6 +152,9 @@ package
 					break;
 				case SPAWN_TYPE_MINER:
 					var img:FlxSprite = new FlxSprite(x + 22, y + 11, SpriteSheet.slimeMiner);
+					img.scrollFactor.x = img.scrollFactor.y = 0;
+					img.scale = new FlxPoint(2, 2);
+					hbRef.gameStateRef.add(img);
 					hbRef.gameStateRef.add(hbRef.gameStateRef.st);
 					break;
 			}

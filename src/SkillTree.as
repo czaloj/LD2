@@ -21,7 +21,7 @@ package
 		
 		public function SkillTree(gameStateRefIn:GameState) 
 		{
-			super(100, 60000, skillTreeBG_Image);
+			super(150, 60000, skillTreeBG_Image);
 			gameStateRef = gameStateRefIn;
 			
 			skillTreeWindow = new FlxGroup();
@@ -34,7 +34,7 @@ package
 			super.update();
 			if (FlxG.keys.justPressed("E")) {
 				if (skillTreeOpened) {
-					y = 80;
+					y = 50;
 					velocity.y = 2300;
 					//skillTreeWindow.visible = false;
 					skillTreeOpened = false;
@@ -46,9 +46,9 @@ package
 				}
 				gameStateRef.jello += 15;
 			}
-			if (y < 80) {
+			if (y < 50) {
 				velocity.y = 0;
-				y = 80;
+				y = 50;
 			}
 		}
 		
