@@ -33,7 +33,6 @@ package
 			dt = dt % 4;
 			velocity.x = dest > x ? Math.min(EntityStats.FREEZER.moveSpeed, dest - x) : Math.max( -EntityStats.FREEZER.moveSpeed, dest - x);
 			y = Math.sin(dt * Math.PI / 2) * 50 + 696;
-		}		
+		}
 	}
-
 }

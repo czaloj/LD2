@@ -76,7 +76,27 @@ package
 			// TODO Add Stats
 			
 			skillPaths[SlimeID.FIGHTER] = new SkillPath(EntityStats.FIGHTER);
-			// TODO Add Stats
+			skillPaths[SlimeID.FIGHTER].setUpgrades(
+				// Tier 1 Upgrades
+				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 20),
+				new SkillUpgrade(50, SkillUpgrade.TARGET_HEALTH, 20),
+				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK_SPEED, 20),
+				
+				// Tier 2 From Evo 1 Upgrades
+				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 20),
+				new SkillUpgrade(50, SkillUpgrade.TARGET_HEALTH, 20),
+				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK_SPEED, 20),
+				
+				// Tier 2 From Evo 2 Upgrades
+				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 20),
+				new SkillUpgrade(50, SkillUpgrade.TARGET_HEALTH, 20),
+				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK_SPEED, 20),
+				
+				// Tier 2 From Evo 3 Upgrades
+				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK, 20),
+				new SkillUpgrade(50, SkillUpgrade.TARGET_HEALTH, 20),
+				new SkillUpgrade(50, SkillUpgrade.TARGET_ATTACK_SPEED, 20)
+			);
 			
 			skillPaths[SlimeID.FREEZER] = new SkillPath(EntityStats.FREEZER);
 			// TODO Add Stats

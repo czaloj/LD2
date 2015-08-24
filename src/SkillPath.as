@@ -36,7 +36,7 @@ package
 			stats = es;
 		}
 		
-		private function setUpgrades(...upgrades):void
+		public function setUpgrades(...upgrades):void
 		{
 			for each (var u:SkillUpgrade in upgrades)
 			{
