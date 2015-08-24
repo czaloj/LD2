@@ -80,7 +80,7 @@ package
 				// Tier 2 From Evo 3 Upgrades
 				new SkillUpgrade(300, SkillUpgrade.TARGET_BUFF_HEALTH, 100),
 				new SkillUpgrade(300, SkillUpgrade.TARGET_BUFF_ATTACK_SPEED, 150),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_BUFF_DAMAGE, 0.5),
+				new SkillUpgrade(300, SkillUpgrade.TARGET_BUFF_DAMAGE, 0.5)
 			);
 			
 			skillPaths[SlimeID.BARRIER] = new SkillPath(EntityStats.BARRIER);
@@ -103,7 +103,7 @@ package
 				// Tier 2 From Evo 3 Upgrades
 				new SkillUpgrade(300, SkillUpgrade.TARGET_BARRIER_DAMAGE_RETURN, 20),
 				new SkillUpgrade(300, SkillUpgrade.TARGET_HEALTH, 150),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_BARRIER_KNOCKBACK, 15),
+				new SkillUpgrade(300, SkillUpgrade.TARGET_BARRIER_KNOCKBACK, 15)
 			);
 			
 			skillPaths[SlimeID.BOMBER] = new SkillPath(EntityStats.BOMBER);
@@ -126,7 +126,7 @@ package
 				// Tier 2 From Evo 3 Upgrades
 				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK, 60),
 				new SkillUpgrade(300, SkillUpgrade.TARGET_HEALTH, 75),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK_SPEED, 50),
+				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK_SPEED, 50)
 			);
 			
 			skillPaths[SlimeID.CLEAVER] = new SkillPath(EntityStats.CLEAVER);
@@ -149,7 +149,7 @@ package
 				// Tier 2 From Evo 3 Upgrades
 				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK, 20),
 				new SkillUpgrade(300, SkillUpgrade.TARGET_HEALTH, 75),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK_SPEED, 15),
+				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK_SPEED, 15)
 			);
 			
 			skillPaths[SlimeID.DESTRUCTOR] = new SkillPath(EntityStats.DESTRUCTOR);
@@ -172,7 +172,7 @@ package
 				// Tier 2 From Evo 3 Upgrades
 				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK, 125),
 				new SkillUpgrade(300, SkillUpgrade.TARGET_HEALTH, 75),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_COOLDOWN, 150),
+				new SkillUpgrade(300, SkillUpgrade.TARGET_COOLDOWN, 150)
 			);
 			
 			skillPaths[SlimeID.FIGHTER] = new SkillPath(EntityStats.FIGHTER);
@@ -195,7 +195,7 @@ package
 				// Tier 2 From Evo 3 Upgrades
 				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK, 25),
 				new SkillUpgrade(300, SkillUpgrade.TARGET_HEALTH, 75),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_MOVESPEED, 150),
+				new SkillUpgrade(300, SkillUpgrade.TARGET_MOVESPEED, 150)
 			);
 			
 			skillPaths[SlimeID.FREEZER] = new SkillPath(EntityStats.FREEZER);
@@ -218,7 +218,7 @@ package
 				// Tier 2 From Evo 3 Upgrades
 				new SkillUpgrade(300, SkillUpgrade.TARGET_SLOW_AMOUNT, 25),
 				new SkillUpgrade(300, SkillUpgrade.TARGET_SLOW_LENGTH, 50),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK_SPEED, 50),
+				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK_SPEED, 50)
 			);
 			
 			skillPaths[SlimeID.HEALER] = new SkillPath(EntityStats.HEALER);
@@ -241,7 +241,7 @@ package
 				// Tier 2 From Evo 3 Upgrades
 				new SkillUpgrade(300, SkillUpgrade.TARGET_HEAL_AMOUNT, 1),
 				new SkillUpgrade(300, SkillUpgrade.TARGET_HEAL_SPEED, 5),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_MOVESPEED, 100),
+				new SkillUpgrade(300, SkillUpgrade.TARGET_MOVESPEED, 100)
 			);
 			
 			skillPaths[SlimeID.MINER] = new SkillPath(EntityStats.MINER);
@@ -264,7 +264,7 @@ package
 				// Tier 2 From Evo 3 Upgrades
 				new SkillUpgrade(300, SkillUpgrade.TARGET_MINING_AMOUNT, 6),
 				new SkillUpgrade(300, SkillUpgrade.TARGET_MOVESPEED, 75),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_ORE_CAPACITY, 50),
+				new SkillUpgrade(300, SkillUpgrade.TARGET_ORE_CAPACITY, 50)
 			);
 			
 			skillPaths[SlimeID.SHOOTER] = new SkillPath(EntityStats.SHOOTER);
@@ -287,7 +287,7 @@ package
 				// Tier 2 From Evo 3 Upgrades
 				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK, 15),
 				new SkillUpgrade(300, SkillUpgrade.TARGET_HEALTH, 75),
-				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK_SPEED, 15),
+				new SkillUpgrade(300, SkillUpgrade.TARGET_ATTACK_SPEED, 15)
 			);		
 		}
 	}
