@@ -12,8 +12,7 @@ package
 		private var tier:int = 0;
 		private var stats:EntityStats;
 		
-		public var root:Node = new Node(0, 
-			0,
+		public var root:Node = new Node(0,
 			new Node(1, 
 				new Node(4),
 				new Node(5),
@@ -40,7 +39,7 @@ package
 		{
 			for each (var u:SkillUpgrade in upgrades)
 			{
-				upgrades.push(upgrade);
+				this.upgrades.push(upgrade);
 			}
 		}
 		

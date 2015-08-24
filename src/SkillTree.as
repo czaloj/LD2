@@ -79,7 +79,7 @@ package
 		private function grayOutPiece(id:int, available:Boolean):void
 		{
 			var group:FlxGroup = tabGroups[currentTab];
-			var sprite:FlxSprite = group[id];
+			var sprite:FlxSprite = group.members[id];
 			sprite.color = available ? 0xffffff : 0x666666;
 		}
 		
