@@ -63,7 +63,7 @@ package
 			n.available = isFound;
 			for each(var no:Node in n.next)
 			{
-				n.available = n.available | cull(no, id, isFound);
+				n.available = ((cull(no, id, isFound)) || n.available);
 			}
 			return n.available;
 		}
