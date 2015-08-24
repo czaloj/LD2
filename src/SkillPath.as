@@ -44,6 +44,16 @@ package
 			}
 		}
 		
+		public function forEachUpgrade(f:Function):void
+		{
+			forEachUpgradeNode(root, f);
+		}
+		private function forEachUpgradeNode(n:Node, f:Function):void
+		{
+			f(n.id, n.available);
+			for each (var no:Node in n.next) forEachUpgradeNode(no, f);
+		}
+		
 		function findNode(n:Node, id:int):Node
 		{
 			for each (var no:Node in n.next)
