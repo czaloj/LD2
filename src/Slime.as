@@ -140,6 +140,11 @@ package
 		
 		protected function jumpToTarget(dest:int):void
 		{
+			if (gameStateRef.hero.alive) {
+				dest = gameStateRef.hero.x;
+			} else {
+				dest = gameStateRef.archer.x;
+			}
 			if (!inAir) {
 				velocity.y = -150;
 				inAir = true;

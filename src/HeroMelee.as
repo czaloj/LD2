@@ -40,6 +40,7 @@ package
 				//death
 				state.remove(healthbar);
 				state.remove(healthtext);
+				alive = false;
 				kill();
 			} else {
 				healthtext.text = "" + hp;
